@@ -6,18 +6,18 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rock
-  m_DiffuseTexture: {fileID: 2800000, guid: 7e35234e281d141418972228ee38415e, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: d39a1b9e5d5c7b9499f579fa5c70a2a3, type: 3}
-  m_MaskMapTexture: {fileID: 2800000, guid: 30b51375156b10e4780537d5793a26c9, type: 3}
-  m_TileSize: {x: 30, y: 30}
+  m_Name: Heather_TerrainLayer
+  m_DiffuseTexture: {fileID: 2800000, guid: 87735acf16005914dba9087627517773, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: c8b8fa1b153cfd3428c4c5c2fded152e, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: 240efe9002d9e7a44b9f2a592f357102, type: 3}
+  m_TileSize: {x: 50, y: 50}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}
   m_Metallic: 0
-  m_Smoothness: 0.277
-  m_NormalScale: 2
+  m_Smoothness: 0
+  m_NormalScale: 5
   m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
-  m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
+  m_DiffuseRemapMax: {x: 0.5875594, y: 0.43454075, z: 0.8773585, w: 1}
   m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}
   m_MaskMapRemapMax: {x: 1, y: 1, z: 1, w: 1}
   m_SmoothnessSource: 1

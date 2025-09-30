@@ -32,7 +32,8 @@ public class RollController : MonoBehaviour
 
     void OnMove(InputValue input)
     {
-        _targetRollRotation = Quaternion.Euler(input.Get<Vector3>());
-        Debug.Log(_targetRollRotation);
+        var dir = input.Get<Vector3>();
+        var corrected = new Vector3(dir.z, 0, dir.x * -1f); // Map translation to the corresponding rotation
+        _targetRollRotation = Quaternion.Euler(corrected * maxBank) * _originalRotation;
     }
 }

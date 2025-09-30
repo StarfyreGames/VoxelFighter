@@ -547,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80259fcfb7c977e43957a1075c6b95ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6
+      value: 22.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80259fcfb7c977e43957a1075c6b95ed, type: 3}
       propertyPath: m_LocalPosition.y
@@ -592,6 +592,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 80259fcfb7c977e43957a1075c6b95ed, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 80259fcfb7c977e43957a1075c6b95ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 80259fcfb7c977e43957a1075c6b95ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 80259fcfb7c977e43957a1075c6b95ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -657,6 +669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26be72e8f10814ef59a6f792e424cbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RollController
+  rollRate: 5
+  maxBank: 30
 --- !u!114 &2141822841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1003ea62a034b8384cda5848b7563e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DirectionController
-  maxSpeed: 100
+  power: 30
 --- !u!54 &2141822843
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -679,8 +693,8 @@ Rigidbody:
   m_GameObject: {fileID: 2141822838}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 1
-  m_AngularDamping: 0.05
+  m_LinearDamping: 5
+  m_AngularDamping: 5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

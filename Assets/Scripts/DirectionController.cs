@@ -4,15 +4,11 @@ using UnityEngine.InputSystem;
 
 public class DirectionController : MonoBehaviour
 {
-    // Just a static offset to make sure the magnitude is reasonable
-    private const int PowerDelta = 100_000;
-    
     public float power = 1;
 
     private Rigidbody _rigidBody;
     private Vector3 _forceVector;
 
-    private float ForceMagnitude => power * Time.fixedDeltaTime * PowerDelta;
 
     private void Awake()
     {

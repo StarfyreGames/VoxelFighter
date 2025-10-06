@@ -1213,6 +1213,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DirectionController
   power: 30
+  leftLimit: -95
+  rightLimit: 85
+  upperLimit: 155
+  lowerLimit: 10
 --- !u!54 &2141822843
 Rigidbody:
   m_ObjectHideFlags: 0

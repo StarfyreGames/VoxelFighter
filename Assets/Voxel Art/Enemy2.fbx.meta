@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Voxel Art/Enemy2.fbx.meta
 guid: 8e1ee8afbcf52614290f7e3d44e6c5b2
+========
+guid: 887ba639d02aad448b0374f0d9b36bd7
+>>>>>>>> 57a3c64 (Reimport of Voxel models Corrective Y Positioning):Assets/Voxel Art/Ship1.fbx.meta
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -35,7 +39,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 50
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1

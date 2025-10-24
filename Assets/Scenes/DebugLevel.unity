@@ -1150,6 +1150,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 80259fcfb7c977e43957a1075c6b95ed, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2141822845}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 80259fcfb7c977e43957a1075c6b95ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2141822847}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 80259fcfb7c977e43957a1075c6b95ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2141822848}
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 80259fcfb7c977e43957a1075c6b95ed, type: 3}
       insertIndex: -1
       addedObject: {fileID: 436904820}
@@ -1263,6 +1269,40 @@ MonoBehaviour:
   verticalLock: 2
   heightPercent: 70
   heightInset: 30
+--- !u!114 &2141822847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141822838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b258311fe0584e6093eacc4fe27e0a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gun
+  bulletPrefab: {fileID: 1508148902821026313, guid: a82bc7ca6961442c9905ee8890caf76e, type: 3}
+  muzzleRotation: {x: 0, y: 0, z: 1}
+  muzzleOffset: {x: -12, y: -3, z: 0}
+  fireRate: 0
+  power: 200
+--- !u!114 &2141822848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141822838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b258311fe0584e6093eacc4fe27e0a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gun
+  bulletPrefab: {fileID: 1508148902821026313, guid: a82bc7ca6961442c9905ee8890caf76e, type: 3}
+  muzzleRotation: {x: 0, y: 0, z: 1}
+  muzzleOffset: {x: 18, y: -3, z: 0}
+  fireRate: 0
+  power: 200
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

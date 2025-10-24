@@ -17,15 +17,16 @@ public class ViewportArea : MonoBehaviour
     public float heightInset;
 
     private ViewportPlane _viewportPlane;
+    private Offsets _offsets;
 
     private void Awake()
     {
-        ComputeLimits();
+        UpdateViewPlane();
     }
 
     private void Update()
     {
-        if (visualise) ComputeLimits();
+        if (visualise) UpdateViewPlane();
     }
 
     private void OnDrawGizmos()
@@ -38,7 +39,14 @@ public class ViewportArea : MonoBehaviour
         Gizmos.DrawLine(_viewportPlane.TopRight, _viewportPlane.TopLeft);
     }
 
-    private void ComputeLimits()
+    private void UpdateViewPlane()
+    {
+        _viewportPlane = CreateBoundingViewportPlane(targetCamera, gameObject, horizontalLock, widthPercent, widthInset, verticalLock,
+            heightPercent, heightInset);
+    }
+    
+    public static ViewportPlane CreateBoundingViewportPlane(Camera targetCamera, GameObject gameObject, ViewportLock horizontalLock,
+        int widthPercent, float widthInset, ViewportLock verticalLock, int heightPercent, float heightInset)
     {
         var distance = Vector3.Distance(targetCamera.transform.position, gameObject.transform.position);
 
@@ -47,68 +55,44 @@ public class ViewportArea : MonoBehaviour
         var br = targetCamera.ViewportToWorldPoint(new Vector3(1, 0, distance));
         var bl = targetCamera.ViewportToWorldPoint(new Vector3(0, 0, distance));
 
-        _viewportPlane = new ViewportPlane(tl, tr, bl, br)
+        // _viewportPlane = new ViewportPlane(tl, tr, bl, br)
+        return new ViewportPlane(tl, tr, bl, br)
             .AddPadding(widthInset, heightInset)
             .ResizeHeight(verticalLock, heightPercent)
             .ResizeWidth(horizontalLock, widthPercent);
-    }
-
-    public Vector3 Clamp(Vector3 position)
-    {
-        return _viewportPlane.Clamp(position);
     }
 
     // ====================
     // ==== PUBLIC API ====
     // ====================
 
-    // public float Width() => Vector3.Distance(_topLeftCorner, _topRightCorner);
-    // public float Height() => Vector3.Distance(_topRightCorner, _bottomRightCorner);
-    //
-    // public bool IsOobLeft(Vector3 position)
-    // {
-    //     return position.x < _topLeftCorner.x;
-    // }
-    //
-    // public bool IsOobRight(Vector3 position)
-    // {
-    //     return position.x > _topRightCorner.x;
-    // }
-    //
-    // public bool IsOobTop(Vector3 position)
-    // {
-    //     return position.z > _topRightCorner.z;
-    // }
-    //
-    // public bool IsOobBottom(Vector3 position)
-    // {
-    //     return position.z < _bottomRightCorner.z;
-    // }
-    //
-    // public bool IsOobVertical(Vector3 position)
-    // {
-    //     return IsOobBottom(position) || IsOobTop(position);
-    // }
-    //
-    // public bool IsOobHorizontal(Vector3 position)
-    // {
-    //     return IsOobLeft(position) || IsOobRight(position);
-    // }
-    //
-    // public Vector3 ClampHorizontally(Vector3 position)
-    // {
-    //     if (IsOobLeft(position)) return new Vector3(_topLeftCorner.x, position.y, position.z);
-    //     if (IsOobRight(position)) return new Vector3(_topRightCorner.x, position.y, position.z);
-    //     return position;
-    // }
-    //
-    // public Vector3 ClampVertically(Vector3 position)
-    // {
-    //     if (IsOobTop(position)) return new Vector3(position.x, position.y, _topRightCorner.z);
-    //     if (IsOobBottom(position)) return new Vector3(position.x, position.y, _bottomLeftCorner.z);
-    //     return position;
-    // }
+    public Vector3 Clamp(Vector3 position)
+    {
+        return _viewportPlane.Clamp(position);
+    }
 
+
+    public bool IsInsideViewportArea(Vector3 position)
+    {
+        return _viewportPlane.IsInsideViewportArea(position);
+    }
+
+    public bool IsOutOfViewportArea(Vector3 position)
+    {
+        return _viewportPlane.IsOutOfViewportArea(position);
+    }
+
+
+    private struct Offsets
+    {
+        public ViewportLock horizontalLock;
+        public int widthPercent;
+        public float widthInset;
+
+        public ViewportLock verticalLock;
+        public int heightPercent;
+        public float heightInset;
+    }
 
     public enum ViewportLock
     {
@@ -117,7 +101,7 @@ public class ViewportArea : MonoBehaviour
         End
     }
 
-    private class ViewportPlane
+    public class ViewportPlane
     {
         private Vector3 _topLeft;
         private Vector3 _topRight;
@@ -180,6 +164,16 @@ public class ViewportArea : MonoBehaviour
             if (outBottom) position.z = BottomRight.z;
 
             return position;
+        }
+
+        public bool IsInsideViewportArea(Vector3 position)
+        {
+            return !IsOutOfViewportArea(position);
+        }
+
+        public bool IsOutOfViewportArea(Vector3 position)
+        {
+            return Clamp(position) != position;
         }
 
         private void AddLeftPadding(float offset)

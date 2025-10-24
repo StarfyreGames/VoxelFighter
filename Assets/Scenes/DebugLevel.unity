@@ -1285,7 +1285,7 @@ MonoBehaviour:
   muzzleRotation: {x: 0, y: 0, z: 1}
   muzzleOffset: {x: -12, y: -3, z: 0}
   fireRate: 0
-  power: 200
+  power: 500
 --- !u!114 &2141822848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1302,7 +1302,7 @@ MonoBehaviour:
   muzzleRotation: {x: 0, y: 0, z: 1}
   muzzleOffset: {x: 18, y: -3, z: 0}
   fireRate: 0
-  power: 200
+  power: 500
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

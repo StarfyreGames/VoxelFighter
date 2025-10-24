@@ -6,7 +6,7 @@ namespace utils
     /**
      * A helper class that uses the CleanUpFence Game Object loaded into the scene to
      * expose a facade API for working with the cleanup fence. Thing outside the fence
-     * area considered ready for cleanrup.
+     * area considered ready for cleanup.
      */
     public static class CleanUpFence
     {

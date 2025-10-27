@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6148404589996036804}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 84.865845, y: 173.99634, z: 1187.0354}
+  m_LocalPosition: {x: -215.49617, y: 93, z: 191.08635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103,6 +103,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee35364a72c4f34e98497032761e2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
+  waypointTrack: {fileID: 0}
+  waypointPath:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  speed: 500
+  hitpoints: 2
+  maxPassCount: 2
+  iAmAlive: 0
 --- !u!54 &3353824723581162274
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,7 +146,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1

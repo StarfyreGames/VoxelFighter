@@ -301,10 +301,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a8ec990b209e54ba9e109e04dfd6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  EnemyOptions: []
-  WaypointTracks: []
+  EnemyOptions:
+  - {fileID: 709809047}
+  WaypointTracks:
+  - {fileID: 1210361047}
   spawnPosition: {x: 0, y: 0, z: 0}
-  enemyToSpawn: {fileID: 0}
+  enemyToSpawn: {fileID: 6148404589996036804, guid: bde099de3d435bd44b7ff275fd5d4e6d, type: 3}
   spawnedEnemyScript: {fileID: 0}
 --- !u!1 &182069140
 GameObject:
@@ -318,6 +320,7 @@ GameObject:
   - component: {fileID: 182069144}
   - component: {fileID: 182069143}
   - component: {fileID: 182069142}
+  - component: {fileID: 182069145}
   m_Layer: 0
   m_Name: Waypoint (4)
   m_TagString: Untagged
@@ -370,7 +373,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182069140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -419,6 +422,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182069140}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &182069145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182069140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &202850441
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +446,7 @@ GameObject:
   - component: {fileID: 202850445}
   - component: {fileID: 202850444}
   - component: {fileID: 202850443}
+  - component: {fileID: 202850446}
   m_Layer: 0
   m_Name: Waypoint (9)
   m_TagString: Untagged
@@ -483,7 +499,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202850441}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -532,6 +548,98 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202850441}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &202850446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202850441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
+--- !u!1 &259042838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 259042839}
+  - component: {fileID: 259042842}
+  - component: {fileID: 259042841}
+  - component: {fileID: 259042840}
+  m_Layer: 0
+  m_Name: TriggerOne
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &259042839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259042838}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -385.56232, y: -274, z: 447.70813}
+  m_LocalScale: {x: 500, y: 300, z: 20}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1973794007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &259042840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259042838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a966a0c2ee4e7ea40b7d49bdeba8dc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  activateGenerator: {fileID: 160140368}
+  EnemyToStart: {fileID: 6148404589996036804, guid: bde099de3d435bd44b7ff275fd5d4e6d, type: 3}
+  trackToFollow: {fileID: 1210361047}
+  spawnDelay: 2
+  spawnTotal: 5
+--- !u!65 &259042841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259042838}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &259042842
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259042838}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +977,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1973794007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &709809047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6148404589996036804, guid: bde099de3d435bd44b7ff275fd5d4e6d, type: 3}
+  m_PrefabInstance: {fileID: 56255043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &734438710
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +994,7 @@ GameObject:
   - component: {fileID: 734438714}
   - component: {fileID: 734438713}
   - component: {fileID: 734438712}
+  - component: {fileID: 734438715}
   m_Layer: 0
   m_Name: Waypoint (11)
   m_TagString: Untagged
@@ -933,7 +1047,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734438710}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -982,6 +1096,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734438710}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &734438715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734438710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &768919169
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +1120,7 @@ GameObject:
   - component: {fileID: 768919173}
   - component: {fileID: 768919172}
   - component: {fileID: 768919171}
+  - component: {fileID: 768919174}
   m_Layer: 0
   m_Name: Waypoint
   m_TagString: Untagged
@@ -1046,7 +1173,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768919169}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1095,6 +1222,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768919169}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &768919174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768919169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &809687281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1731,7 @@ GameObject:
   - component: {fileID: 1336864843}
   - component: {fileID: 1336864842}
   - component: {fileID: 1336864841}
+  - component: {fileID: 1336864844}
   m_Layer: 0
   m_Name: Waypoint (6)
   m_TagString: Untagged
@@ -1644,7 +1784,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336864839}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1693,6 +1833,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336864839}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1336864844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336864839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &1356157724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,6 +1857,7 @@ GameObject:
   - component: {fileID: 1356157728}
   - component: {fileID: 1356157727}
   - component: {fileID: 1356157726}
+  - component: {fileID: 1356157729}
   m_Layer: 0
   m_Name: Waypoint (2)
   m_TagString: Untagged
@@ -1757,7 +1910,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356157724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1806,6 +1959,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356157724}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1356157729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356157724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &1451499709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,6 +1983,7 @@ GameObject:
   - component: {fileID: 1451499713}
   - component: {fileID: 1451499712}
   - component: {fileID: 1451499711}
+  - component: {fileID: 1451499714}
   m_Layer: 0
   m_Name: Waypoint (12)
   m_TagString: Untagged
@@ -1870,7 +2036,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451499709}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1919,6 +2085,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451499709}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1451499714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451499709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &1517620570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,6 +2109,7 @@ GameObject:
   - component: {fileID: 1517620574}
   - component: {fileID: 1517620573}
   - component: {fileID: 1517620572}
+  - component: {fileID: 1517620575}
   m_Layer: 0
   m_Name: Waypoint (13)
   m_TagString: Untagged
@@ -1983,7 +2162,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517620570}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2032,6 +2211,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517620570}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1517620575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517620570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &1703996721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,6 +2235,7 @@ GameObject:
   - component: {fileID: 1703996725}
   - component: {fileID: 1703996724}
   - component: {fileID: 1703996723}
+  - component: {fileID: 1703996726}
   m_Layer: 0
   m_Name: Waypoint (7)
   m_TagString: Untagged
@@ -2096,7 +2288,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703996721}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2145,6 +2337,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703996721}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1703996726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703996721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &1722728051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,6 +2413,7 @@ GameObject:
   - component: {fileID: 1749133983}
   - component: {fileID: 1749133982}
   - component: {fileID: 1749133981}
+  - component: {fileID: 1749133984}
   m_Layer: 0
   m_Name: Waypoint (3)
   m_TagString: Untagged
@@ -2261,7 +2466,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749133979}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2310,6 +2515,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749133979}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1749133984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749133979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &1837281865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,6 +2776,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 259042839}
   - {fileID: 2043309654}
   - {fileID: 1277420880}
   - {fileID: 1837281866}
@@ -2581,6 +2799,7 @@ GameObject:
   - component: {fileID: 1986636131}
   - component: {fileID: 1986636130}
   - component: {fileID: 1986636129}
+  - component: {fileID: 1986636132}
   m_Layer: 0
   m_Name: Waypoint (1)
   m_TagString: Untagged
@@ -2633,7 +2852,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986636127}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2682,6 +2901,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986636127}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1986636132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986636127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &2030826035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,6 +2925,7 @@ GameObject:
   - component: {fileID: 2030826039}
   - component: {fileID: 2030826038}
   - component: {fileID: 2030826037}
+  - component: {fileID: 2030826040}
   m_Layer: 0
   m_Name: Waypoint (5)
   m_TagString: Untagged
@@ -2746,7 +2978,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030826035}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2795,6 +3027,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030826035}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2030826040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030826035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &2043309651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,6 +3144,7 @@ GameObject:
   - component: {fileID: 2069956738}
   - component: {fileID: 2069956737}
   - component: {fileID: 2069956736}
+  - component: {fileID: 2069956739}
   m_Layer: 0
   m_Name: Waypoint (8)
   m_TagString: Untagged
@@ -2952,7 +3197,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069956734}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3001,6 +3246,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069956734}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2069956739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069956734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1 &2130353617
 GameObject:
   m_ObjectHideFlags: 0
@@ -3013,6 +3270,7 @@ GameObject:
   - component: {fileID: 2130353621}
   - component: {fileID: 2130353620}
   - component: {fileID: 2130353619}
+  - component: {fileID: 2130353622}
   m_Layer: 0
   m_Name: Waypoint (10)
   m_TagString: Untagged
@@ -3065,7 +3323,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130353617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3114,6 +3372,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130353617}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2130353622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130353617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
 --- !u!1001 &7428114312146505464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3126,6 +3396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2554194640709556644, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
+      propertyPath: targetCamera
+      value: 
+      objectReference: {fileID: 330585545}
     - target: {fileID: 2867788115499011360, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.553116

@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 2554194640709556644}
   - component: {fileID: 69113895754119938}
   - component: {fileID: 7253014696817047929}
+  - component: {fileID: 1889955887620691777}
+  - component: {fileID: 8021798559265184196}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -169,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26be72e8f10814ef59a6f792e424cbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RollController
-  rollRate: 20
-  maxBank: 20
+  rollRate: 5
+  maxBank: 30
 --- !u!114 &2554194640709556644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,3 +236,37 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1889955887620691777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508449768826772164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b258311fe0584e6093eacc4fe27e0a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gun
+  bulletPrefab: {fileID: 1508148902821026313, guid: a82bc7ca6961442c9905ee8890caf76e, type: 3}
+  muzzleRotation: {x: 0, y: 0, z: 1}
+  muzzleOffset: {x: -15, y: -3, z: 0}
+  fireRate: 0
+  power: 500
+--- !u!114 &8021798559265184196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508449768826772164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b258311fe0584e6093eacc4fe27e0a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gun
+  bulletPrefab: {fileID: 1508148902821026313, guid: a82bc7ca6961442c9905ee8890caf76e, type: 3}
+  muzzleRotation: {x: 0, y: 0, z: 1}
+  muzzleOffset: {x: 15, y: -3, z: 0}
+  fireRate: 0
+  power: 500

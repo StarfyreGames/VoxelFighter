@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6148404589996036804
+--- !u!1 &8624833140447792632
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,57 +8,57 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2200299996636281240}
-  - component: {fileID: 4322815807501582811}
-  - component: {fileID: 974205854315490177}
-  - component: {fileID: 5363698282783814180}
-  - component: {fileID: 3353824723581162274}
+  - component: {fileID: 9005581494740588354}
+  - component: {fileID: 5428415567664453863}
+  - component: {fileID: 7832160503748619309}
+  - component: {fileID: 2354925685337784922}
+  - component: {fileID: 6849876865485787531}
   m_Layer: 0
-  m_Name: Enemy1
-  m_TagString: Enemy
+  m_Name: Enemy2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2200299996636281240
+--- !u!4 &9005581494740588354
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148404589996036804}
+  m_GameObject: {fileID: 8624833140447792632}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -215.49617, y: 93, z: 191.08635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!33 &4322815807501582811
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5428415567664453863
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148404589996036804}
-  m_Mesh: {fileID: -4453553842955497953, guid: d030cd49c7d35e142be8e69fdcb88d24, type: 3}
---- !u!23 &974205854315490177
+  m_GameObject: {fileID: 8624833140447792632}
+  m_Mesh: {fileID: 6418710175093931941, guid: 8e1ee8afbcf52614290f7e3d44e6c5b2, type: 3}
+--- !u!23 &7832160503748619309
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148404589996036804}
+  m_GameObject: {fileID: 8624833140447792632}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 1
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4c5b5b213628e4e44943b2a3e00b192c, type: 2}
+  - {fileID: 2100000, guid: 2e70f7bc574ca75479e08016d555be8a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,13 +91,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5363698282783814180
+--- !u!114 &2354925685337784922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148404589996036804}
+  m_GameObject: {fileID: 8624833140447792632}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cee35364a72c4f34e98497032761e2a6, type: 3}
@@ -109,13 +109,13 @@ MonoBehaviour:
   hitpoints: 2
   maxPassCount: 2
   iAmAlive: 0
---- !u!54 &3353824723581162274
+--- !u!54 &6849876865485787531
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148404589996036804}
+  m_GameObject: {fileID: 8624833140447792632}
   serializedVersion: 5
   m_Mass: 3
   m_LinearDamping: 5
@@ -132,7 +132,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1

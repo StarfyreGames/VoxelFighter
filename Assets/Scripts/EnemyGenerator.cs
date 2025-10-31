@@ -15,7 +15,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         Vector3 myPos = transform.position;
         myPos.y = PlayerScript.Instance.yPos;
-        transform.position = myPos;
+        transform.position = myPos;        
     }
 
     public void GenerateEnemies()
@@ -45,6 +45,7 @@ public class EnemyGenerator : MonoBehaviour
         //spawnedEnemyScript.CreatePath(followPath);
         //spawnedEnemyScript.iAmAlive = true;
         //Debug.Log("Instantiate");
+        spawnPosition = transform.position;
 
         StartCoroutine(GenerationCycle(enemyType, followPath, delay, spawnTotal));
 
@@ -65,6 +66,7 @@ public class EnemyGenerator : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2f);
+
         Debug.Log($"<color=red> Generator Suspended");
     }      
 

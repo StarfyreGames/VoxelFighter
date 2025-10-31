@@ -81,50 +81,52 @@ public class EnemyScript : MonoBehaviour
 
         Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.deltaTime);
         rb.MovePosition(newPos);
-        Debug.Log($"<color=#ff5c00> MovePosition tried");
-
+        Debug.Log($"<color=#ff5c00> MovePosition tried</color>");
 
         if (passCount < maxPassCount)
         {
-            Debug.Log("Passcount is less than max");
             if (Vector3.Distance(rb.position, target) < 0.1f)
             {
                 if (!returnPath)
                 {
-                    Debug.Log($"<color=#d912fb> moving forward </color>");
-                    nextWaypoint++;
+                    if (nextWaypoint < waypointPath.Count - 1)
+                    {
+                        nextWaypoint++;
+                        Debug.Log($"<color=#d912fb> moving forward </color>");
+                    }
+                    else
+                    {
+                        // Reached final waypoint
+                        returnPath = true;
+                        passCount++;
+                        Debug.Log($"<color=#d912fb> reversing at end. Passcount is {passCount} </color>");
+                    }
                 }
-
-                if (nextWaypoint == waypointPath.Count)
+                else
                 {
-                    returnPath = true;
-                    nextWaypoint--;
-                    passCount++;
-                }
-            }
-            else if (returnPath)
-            {
-                Debug.Log($"<color=#d912fb> moving back </color>");
-                if (Vector3.Distance(rb.position, target) < 0.1f)
-                {
-                    nextWaypoint--;
-                }
-                if (nextWaypoint < 0)
-                {
-                    returnPath = false;
-                    nextWaypoint = 0;
-                    passCount++;
+                    if (nextWaypoint > 0)
+                    {
+                        nextWaypoint--;
+                        Debug.Log($"<color=#d912fb> moving back </color>");
+                    }
+                    else
+                    {
+                        // Reached first waypoint
+                        returnPath = false;
+                        passCount++;
+                        Debug.Log($"<color=#d912fb> reversing at start. Passcount is {passCount} </color>");
+                    }
                 }
             }
         }
-        
-        if (passCount > maxPassCount)
+
+        if (passCount >= maxPassCount)
         {
             Debug.Log($"Enemy <color=red> DESTROYED </color> due to max pass");
             DestroyMe();
         }
-
     }
+
 
     public void TakeDamage(int dmg)
     {

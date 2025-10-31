@@ -18,6 +18,11 @@ public class ViewportArea : MonoBehaviour
 
     private ViewportPlane _viewportPlane;
 
+    public ViewportArea(ViewportPlane viewportPlane)
+    {
+        UpdateViewPlane();
+    }
+
     private void Awake()
     {
         UpdateViewPlane();
@@ -30,6 +35,8 @@ public class ViewportArea : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (_viewportPlane == null) return;
+
         Gizmos.color = Color.green;
 
         Gizmos.DrawLine(_viewportPlane.TopLeft, _viewportPlane.BottomLeft);

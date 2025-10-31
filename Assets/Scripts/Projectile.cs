@@ -1,18 +1,23 @@
+using Guns;
 using UnityEngine;
 using utils;
 
 public class Projectile : MonoBehaviour
 {
-    private Vector3 _velocity;
+    private BulletSpec _bulletSpec;
+    private GameObject _bullet;
 
-    public void Initialise(Camera targetCamera, Vector3 velocity)
+    public void Initialise(BulletSpec bulletCharacteristics, GameObject bullet)
     {
-        _velocity = velocity;
+        _bulletSpec = bulletCharacteristics;
+        _bullet = bullet;
+
+        _bullet.transform.localScale = _bulletSpec.scale;
     }
 
     private void Update()
     {
-        gameObject.transform.position += _velocity * Time.deltaTime;
+        gameObject.transform.position += _bulletSpec.velocity * Time.deltaTime;
         if (CleanUpFence.ShouldDestroy(gameObject)) Destroy(gameObject);
     }
 }

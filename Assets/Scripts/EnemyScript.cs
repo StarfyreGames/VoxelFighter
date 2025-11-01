@@ -1,6 +1,7 @@
 using NUnit.Framework;
-using UnityEngine;
 using System.Collections.Generic;
+using System.Drawing;
+using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -22,9 +23,9 @@ public class EnemyScript : MonoBehaviour
 
     private Rigidbody rb;
 
-    private void Start()
+    private void Awake()
     {
-        waypointPath = new List<Transform>();
+        //waypointPath = new List<Transform>(); only needed if dropping enemy directly into scene
         rb = GetComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Interpolate;
     }
@@ -33,10 +34,6 @@ public class EnemyScript : MonoBehaviour
     {
         if (iAmAlive)
         {
-            Vector3 myPos = transform.position;
-            myPos.y = PlayerScript.Instance.yPos;
-            transform.position = myPos;
-
             //move towards waypoint record.
             CheckAndMove();
         }
@@ -49,6 +46,7 @@ public class EnemyScript : MonoBehaviour
 
     public void CreatePath(WaypointTrack path)
     {
+        waypointPath = new List<Transform>();
         waypointPath.Clear(); //clears path
         waypointTrack = path; //assigns variable to waypoint track (avoids us having to set it up first)
 
@@ -59,7 +57,7 @@ public class EnemyScript : MonoBehaviour
         
         foreach (Transform t in waypointPath)
         {
-            Debug.Log($"<color = green> {t.transform.position} </color>");
+            Debug.Log($"<color=green> {t.transform.position} </color>");
         }
 
         //path now created. We now need to tell the enemy to start moving towards each waypoint.
@@ -70,6 +68,7 @@ public class EnemyScript : MonoBehaviour
     {
         gameObject.transform.position = waypointPath[0].transform.position;
         nextWaypoint++;
+        Debug.Log($"<color=cyan> Begin Path </color>");
     }
 
     private void CheckAndMove()
@@ -82,7 +81,7 @@ public class EnemyScript : MonoBehaviour
 
         Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.deltaTime);
         rb.MovePosition(newPos);
-
+        Debug.Log($"<color=#ff5c00> MovePosition tried</color>");
 
         if (passCount < maxPassCount)
         {
@@ -90,38 +89,44 @@ public class EnemyScript : MonoBehaviour
             {
                 if (!returnPath)
                 {
-                    nextWaypoint++;
+                    if (nextWaypoint < waypointPath.Count - 1)
+                    {
+                        nextWaypoint++;
+                        Debug.Log($"<color=#d912fb> moving forward </color>");
+                    }
+                    else
+                    {
+                        // Reached final waypoint
+                        returnPath = true;
+                        passCount++;
+                        Debug.Log($"<color=#d912fb> reversing at end. Passcount is {passCount} </color>");
+                    }
                 }
-
-                if (nextWaypoint == waypointPath.Count)
+                else
                 {
-                    returnPath = true;
-                    nextWaypoint--;
-                    passCount++;
-                }
-            }
-            else if (returnPath)
-            {
-                if (Vector3.Distance(rb.position, target) < 0.1f)
-                {
-                    nextWaypoint--;
-                }
-                if (nextWaypoint < 0)
-                {
-                    returnPath = false;
-                    nextWaypoint = 0;
-                    passCount++;
+                    if (nextWaypoint > 0)
+                    {
+                        nextWaypoint--;
+                        Debug.Log($"<color=#d912fb> moving back </color>");
+                    }
+                    else
+                    {
+                        // Reached first waypoint
+                        returnPath = false;
+                        passCount++;
+                        Debug.Log($"<color=#d912fb> reversing at start. Passcount is {passCount} </color>");
+                    }
                 }
             }
         }
-        
-        if (passCount > maxPassCount)
+
+        if (passCount >= maxPassCount)
         {
             Debug.Log($"Enemy <color=red> DESTROYED </color> due to max pass");
             DestroyMe();
         }
-
     }
+
 
     public void TakeDamage(int dmg)
     {

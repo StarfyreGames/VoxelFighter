@@ -1,8 +1,9 @@
 using Guns.Clip;
+using UnityEngine;
 
 namespace Guns.Modifications
 {
-    public abstract class AModification
+    public abstract class AModification : MonoBehaviour
     {
         public virtual GunSpec Modify(GunSpec spec)
         {

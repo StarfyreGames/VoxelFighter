@@ -1,3 +1,4 @@
+using Guns;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,23 +12,25 @@ public class EnemyScript : MonoBehaviour
 
     [Header("Enemy Variables")]
     [SerializeField] public float speed = 50f;
-    [SerializeField] public int hitpoints = 2;
+    [SerializeField] public int maxHitpoints = 2;
     [SerializeField] public int maxPassCount = 0; //might be moved or changed by generator logic.
 
     int nextWaypoint = 0;
     int passCount = 0;
-    
+    public int hitpoints;
 
     bool returnPath = false;
     public bool iAmAlive = false;
 
     private Rigidbody rb;
+    private MeshCollider MeshCollider;
 
     private void Awake()
     {
         //waypointPath = new List<Transform>(); only needed if dropping enemy directly into scene
         rb = GetComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Interpolate;
+        hitpoints = maxHitpoints;
     }
 
     private void Update()
@@ -127,11 +130,37 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider coll)
+    {
+        int damage;
+        if (coll.gameObject.tag == "shot")
+        {
+            Debug.Log($"<color=orange> registering bullet hit</color>");
+            Projectile hit = coll.gameObject.GetComponent<Projectile>();
+            BulletSpec bulletSpec = hit.GetComponent<BulletSpec>();
+            if (bulletSpec.origin == BulletSpec.Origin.Player)
+            {
+                damage = (int)bulletSpec.damage;
+            }
+            else
+            { 
+                damage = 0;
+            }
+        }
+        else
+        {
+            Debug.Log($"registering trigger collision with {coll}");
+            damage = 0; 
+        }
+
+        TakeDamage( damage );
+    }
+
 
     public void TakeDamage(int dmg)
     {
         //add in call to animator to show hit effect here
-
+        Debug.Log($"{gameObject.name} taking <color=green> {dmg} </color> damage to <color=cyan>{hitpoints} </color>total HP");
         hitpoints -= dmg;
 
         if (hitpoints <= 0)
@@ -141,12 +170,19 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("ENEMY KILLED");
             DestroyMe();
         }
+        else
+        {
+            Debug.Log($"{gameObject.name} now has <color=orange>{hitpoints}</color> out of <color=cyan>{maxHitpoints}</color> total HP.");
+        }
     }
 
     public void DestroyMe()
     {
         //add a call to explosion animation here with a wait
         iAmAlive = false;
+        
+        Debug.Log($"Enemy Destroyed.");
+
         Destroy(gameObject);
     }
 }

@@ -10,6 +10,7 @@ public class EnemyGenerator : MonoBehaviour
     Quaternion spawnRotation = Quaternion.Euler(0,180,0);
     public GameObject enemyToSpawn;
     public EnemyScript spawnedEnemyScript;
+    public bool isRunning { get; private set; }
 
     private void Update()
     {
@@ -47,12 +48,14 @@ public class EnemyGenerator : MonoBehaviour
         //Debug.Log("Instantiate");
         spawnPosition = transform.position;
 
-        StartCoroutine(GenerationCycle(enemyType, followPath, delay, spawnTotal));
+        if(!isRunning)
+            StartCoroutine(GenerationCycle(enemyType, followPath, delay, spawnTotal));
 
     }
 
     IEnumerator GenerationCycle(GameObject enemy, WaypointTrack path, float delay, int spawnTotal)
     {
+        isRunning = true;
         for (int i = 0; i < spawnTotal; i++)
         {
             Debug.Log($"<color=blue> Generate called.</color>");
@@ -66,7 +69,7 @@ public class EnemyGenerator : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2f);
-
+        isRunning = false;
         Debug.Log($"<color=red> Generator Suspended");
     }      
 

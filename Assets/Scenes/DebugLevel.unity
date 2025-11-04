@@ -371,8 +371,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a8ec990b209e54ba9e109e04dfd6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  EnemyOptions: [{fileID: 0}, {fileID: 8624833140447792632, guid: b5eedf1ab5a999c4ba5861d08cf893b4, type: 3}]
-  WaypointTracks: [{fileID: 1210361047}, {fileID: 1030128638}]
+  EnemyOptions:
+  - {fileID: 0}
+  - {fileID: 8624833140447792632, guid: b5eedf1ab5a999c4ba5861d08cf893b4, type: 3}
+  WaypointTracks:
+  - {fileID: 1210361047}
+  - {fileID: 1030128638}
   spawnPosition: {x: 0, y: 0, z: 0}
   enemyToSpawn: {fileID: 0}
   spawnedEnemyScript: {fileID: 0}
@@ -2833,7 +2837,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4463895010634113322, guid: f31b0fab5c009e54597aa22b1413b97c, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f416577def9439842a715c98786bb752, type: 2}
     - target: {fileID: 919132149155446097, guid: f31b0fab5c009e54597aa22b1413b97c, type: 3}
@@ -4968,39 +4972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
---- !u!1 &2035091635 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
-  m_PrefabInstance: {fileID: 7428114312146505464}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2035091647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035091635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be6ce3564bf47b4af7d1475770ed448, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerGunScript
-  gunSlots:
-  - {x: -15, y: -3, z: 0}
-  - {x: 15, y: -3, z: 0}
---- !u!114 &2035091648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035091635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9b22fec94544d0882ab83054883e8ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BulletCatalogue
-  basicBulletPrefab: {fileID: 1508148902821026313, guid: a82bc7ca6961442c9905ee8890caf76e, type: 3}
 --- !u!1 &2043309651
 GameObject:
   m_ObjectHideFlags: 0
@@ -5580,21 +5551,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1889955887620691777, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
       propertyPath: m_Name
       value: Player (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554194640709556644, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
-      propertyPath: targetCamera
-      value: 
-      objectReference: {fileID: 330585545}
-    - target: {fileID: 2554194640709556644, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2554194640709556644, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
       propertyPath: targetCamera
@@ -5640,15 +5599,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8021798559265184196, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
+    - target: {fileID: 8826991415295482006, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: [{targetCorrespondingSourceObject: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}, insertIndex: -1, addedObject: {fileID: 2035091647}},
-      {targetCorrespondingSourceObject: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}, insertIndex: -1, addedObject: {fileID: 2035091648}}]
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

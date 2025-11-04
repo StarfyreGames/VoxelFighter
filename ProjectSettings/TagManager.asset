@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - TestingPowerpllot
+  - shot
   layers:
   - Default
   - TransparentFX

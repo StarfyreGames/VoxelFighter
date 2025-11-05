@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 974205854315490177}
   - component: {fileID: 5363698282783814180}
   - component: {fileID: 3353824723581162274}
-  - component: {fileID: 2613946177908300362}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -230,7 +229,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6148404589996036804}
   serializedVersion: 5
-  m_Mass: 3
+  m_Mass: 0.0000001
   m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -249,28 +248,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!64 &2613946177908300362
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148404589996036804}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4453553842955497953, guid: d030cd49c7d35e142be8e69fdcb88d24, type: 3}
 --- !u!1 &9201734644191790117
 GameObject:
   m_ObjectHideFlags: 0

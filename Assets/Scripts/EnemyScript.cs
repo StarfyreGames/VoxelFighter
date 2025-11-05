@@ -135,9 +135,10 @@ public class EnemyScript : MonoBehaviour
         int damage;
         if (coll.gameObject.tag == "shot")
         {
-            Debug.Log($"<color=orange> registering bullet hit</color>");
-            Projectile hit = coll.gameObject.GetComponent<Projectile>();
-            BulletSpec bulletSpec = hit.GetComponent<BulletSpec>();
+            
+            Projectile hit = coll.gameObject.GetComponent<Projectile>(); //these lines assume monobehaviour
+            BulletSpec bulletSpec = hit.GetComponent<BulletSpec>();      //SO how do we do this without monobehaviour components?
+
             if (bulletSpec.origin == BulletSpec.Origin.Player)
             {
                 damage = (int)bulletSpec.damage;
@@ -147,10 +148,15 @@ public class EnemyScript : MonoBehaviour
                 damage = 0;
             }
         }
+        else if(coll.gameObject.tag == "Player")
+        {
+            Debug.Log($"<color=orange> registering player collision</color>");
+            damage = 10; //standard damage for collision
+        }
         else
         {
             Debug.Log($"registering trigger collision with {coll}");
-            damage = 0; 
+            damage = 0;
         }
 
         TakeDamage( damage );
@@ -182,7 +188,7 @@ public class EnemyScript : MonoBehaviour
         iAmAlive = false;
         
         Debug.Log($"Enemy Destroyed.");
-
-        Destroy(gameObject);
+        GameObject.Destroy(gameObject);
+        Debug.Log("destroyed");
     }
 }

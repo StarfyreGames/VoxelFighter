@@ -56,6 +56,8 @@ public class PlayerScript : MonoBehaviour
             Debug.Log($"registered a collision with <color=red>{coll.gameObject.name}</color>.");
         }
     }
+
+    //-------------------------------------------------------The below needs to be refactored--------------------------------------\\
     public void TakeDamage(int dmg)
     {
         //add in call to animator to show hit effect here
@@ -74,7 +76,7 @@ public class PlayerScript : MonoBehaviour
             {
                 hitpoints = 0;
                 Debug.Log("<color=orange>PLAYER KILLED</color>");
-                //insert destroy me 
+                //KillMe();
             }
             else
             {
@@ -84,7 +86,7 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    public void KillMe()
+   /* public void KillMe()
     {
         //add a call to explosion animation here with a wait
         Vector3 myPos = transform.position;
@@ -92,8 +94,7 @@ public class PlayerScript : MonoBehaviour
         lives--;
         if (lives > 0) 
         {
-            iAmInvincible = true;
-            gameObject.SetActive(false);
+            iAmInvincible = true;            
             Debug.Log($"Player loses a Life!");
             StartCoroutine(LoseLife());
         }
@@ -123,6 +124,7 @@ public class PlayerScript : MonoBehaviour
         iAmInvincible=false;
         Debug.Log($"Player no longer invincible");
     }
+   */
 
 }
 

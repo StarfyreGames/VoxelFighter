@@ -58,10 +58,10 @@ public class EnemyScript : MonoBehaviour
             waypointPath.Add(path.waypoints[i]); //assigns transforms in order to the waypointpath
         }
         
-        foreach (Transform t in waypointPath)
-        {
-            Debug.Log($"<color=green> {t.transform.position} </color>");
-        }
+        //foreach (Transform t in waypointPath)
+        //{
+        //    Debug.Log($"<color=green> {t.transform.position} </color>");
+        //}
 
         //path now created. We now need to tell the enemy to start moving towards each waypoint.
         BeginPath();        
@@ -189,6 +189,6 @@ public class EnemyScript : MonoBehaviour
         
         Debug.Log($"Enemy Destroyed.");
         GameObject.Destroy(gameObject);
-        Debug.Log("destroyed");
+
     }
 }

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Voxel Art/VOXELEnemyMat.mat.meta
 guid: 4c5b5b213628e4e44943b2a3e00b192c
+========
+guid: 6aa61121dc10db54fb9b93d22c7814c1
+>>>>>>>> 57a3c64fe1f787eb233be208b4973eeeaa1040c1:Assets/Voxel Art/VOXELShader.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

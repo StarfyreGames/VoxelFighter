@@ -11,7 +11,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] public List<Transform> waypointPath;
 
     [Header("Enemy Variables")]
-    [SerializeField] public float speed = 50f;
+    [SerializeField] public float speed = 350f;
     [SerializeField] public int maxHitpoints = 2;
     [SerializeField] public int maxPassCount = 0; //might be moved or changed by generator logic.
 
@@ -137,18 +137,21 @@ public class EnemyScript : MonoBehaviour
         {
             
             Projectile hit = coll.gameObject.GetComponent<Projectile>(); //these lines assume monobehaviour
-            BulletSpec bulletSpec = hit.GetComponent<BulletSpec>();      //SO how do we do this without monobehaviour components?
+            Debug.Log($"<color=green> Registering hit from </color> {hit.origin} fire.");
+            damage = hit.damage;
 
-            if (bulletSpec.origin == BulletSpec.Origin.Player)
+            if (hit.origin == BulletSpec.Origin.Player)
             {
-                damage = (int)bulletSpec.damage;
+                TakeDamage(damage);
+                hit.DestroyMe();
             }
             else
-            { 
+            {
                 damage = 0;
             }
+
         }
-        else if(coll.gameObject.tag == "Player")
+        else if (coll.gameObject.tag == "Player")
         {
             Debug.Log($"<color=orange> registering player collision</color>");
             damage = 10; //standard damage for collision
@@ -159,7 +162,9 @@ public class EnemyScript : MonoBehaviour
             damage = 0;
         }
 
-        TakeDamage( damage );
+
+
+  
     }
 
 

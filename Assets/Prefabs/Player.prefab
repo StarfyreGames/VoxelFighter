@@ -244,7 +244,7 @@ MonoBehaviour:
   visualise: 1
   targetCamera: {fileID: 0}
   horizontalLock: 1
-  widthPercent: 60
+  widthPercent: 50
   widthInset: 25
   verticalLock: 2
   heightPercent: 60
@@ -262,12 +262,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
   yPos: 0
-  hitpoints: 0
-  maxHitpoints: 5
+  shieldPoints: 0
+  maxShieldPoints: 5
   lives: 2
   playerPrefab: {fileID: 2508449768826772164}
   Scroller: {fileID: 0}
   actscroller: {fileID: 0}
+  shieldSlider: {fileID: 0}
   iAmInvincible: 0
   engagedBoss: 0
 --- !u!114 &7253014696817047929

@@ -2,14 +2,15 @@ using System.Collections;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
     public float yPos = 0;
-    public int hitpoints;
+    public int shieldPoints; //we will also add an armor stat later ?
 
     [Header("Player Variables")]
-    [SerializeField] public int maxHitpoints = 5; //will replace or add to this with shields later
+    [SerializeField] public int maxShieldPoints = 5; //will replace or add to this with shields later
     [SerializeField] public int lives = 2;
     [SerializeField] GameObject playerPrefab;
 
@@ -17,8 +18,12 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] public GameObject Scroller;
     [SerializeField] public TerrainScroller actscroller;
 
+    [Header("Unity UI Variables")]//will be moved to player manager
+    [SerializeField] Slider shieldSlider;
+
     public static PlayerScript Instance { get; private set; }
     public bool iAmInvincible = false;
+    public bool alreadyHit = false;
     public bool engagedBoss = false;
 
     private void Awake()
@@ -32,7 +37,10 @@ public class PlayerScript : MonoBehaviour
             Instance = this;
         }
        
-        hitpoints = maxHitpoints;
+        shieldPoints = maxShieldPoints;
+
+        shieldSlider.maxValue = maxShieldPoints;
+        shieldSlider.value = shieldPoints;
 
         Debug.Log($"Scroller = {Scroller}");
         actscroller = Scroller.GetComponent<TerrainScroller>();
@@ -57,36 +65,38 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    //-------------------------------------------------------The below needs to be refactored--------------------------------------\\
+    //----------------------------------The below needs to be refactored into a seperate manager--------------------------------------\\
     public void TakeDamage(int dmg)
     {
         //add in call to animator to show hit effect here
         //This will be changed to account for shielding later in the development. 
         //We should allow for upgrades to the players shields and hull etc - Tyrian
-        if (iAmInvincible)
+        if (iAmInvincible || alreadyHit)
         {
             Debug.Log($"<color=blue>Player can't take damage right now</color>");
         }
         else
         {
-            Debug.Log($"{gameObject.name} taking <color=green> {dmg} </color> damage to <color=cyan>{hitpoints} </color>total HP");
-            hitpoints -= dmg;
+            Debug.Log($"{gameObject.name} taking <color=green> {dmg} </color> damage to <color=cyan>{shieldPoints} </color>total HP");
+            shieldPoints -= dmg;
 
-            if (hitpoints <= 0)
+            if (shieldPoints <= 0)
             {
-                hitpoints = 0;
+                shieldPoints = 0;
                 Debug.Log("<color=orange>PLAYER KILLED</color>");
                 //KillMe();
             }
-            else
-            {
-                Debug.Log($"{gameObject.name} now has <color=orange>{hitpoints}</color> out of <color=cyan>{maxHitpoints}</color> total HP.");
-            }
+
+            //Update UI SLIder
+            shieldSlider.value = shieldPoints;
+            Debug.Log($"{gameObject.name} now has <color=orange>{shieldPoints}</color> out of <color=cyan>{maxShieldPoints}</color> total HP.");
+            StartCoroutine(StopMultiCrash());
+
         }
 
     }
 
-   /* public void KillMe()
+    public void KillMe()
     {
         //add a call to explosion animation here with a wait
         Vector3 myPos = transform.position;
@@ -122,9 +132,17 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         //insert invulnerability flash here
         iAmInvincible=false;
+        shieldPoints = maxShieldPoints;
+        shieldSlider.value = shieldPoints;
         Debug.Log($"Player no longer invincible");
     }
-   */
+
+    IEnumerator StopMultiCrash()
+    {
+        alreadyHit = true;
+        yield return new WaitForSeconds(1.5f); //stops further collision registration
+        alreadyHit = false;
+    }
 
 }
 

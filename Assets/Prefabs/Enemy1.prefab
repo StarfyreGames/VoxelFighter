@@ -216,8 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
   waypointTrack: {fileID: 0}
   waypointPath: []
-  speed: 250
-  maxHitpoints: 2
+  speed: 350
+  maxHitpoints: 15
   maxPassCount: 2
   hitpoints: 2
   iAmAlive: 0
@@ -229,7 +229,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6148404589996036804}
   serializedVersion: 5
-  m_Mass: 0.0000001
+  m_Mass: 3
   m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

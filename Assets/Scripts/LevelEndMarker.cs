@@ -18,8 +18,12 @@ public class LevelEndMarker : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             actscroller.scrolling = false;
+            PlayerScript.Instance.engagedBoss = true;
             Debug.Log($"<color=red>ENTER THE BOSS!</color>");
 
         }
     }
+
+    //TODO : Here we need to start thinking about the Boss Fight. perhaps how it moves (waypoints?) and possible action patterns (when does it go in what direction, when does it fire its guns. What guns does it fire?)
+    //We must also REMEMBER TO RESET THE ENGAGEDBOSS TAG!
 }

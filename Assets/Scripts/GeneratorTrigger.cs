@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GeneratorTrigger : MonoBehaviour
@@ -28,9 +29,15 @@ public class GeneratorTrigger : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log($"<color=orange> player encountered</color>");
-            activateGenerator.GenerateEnemies(EnemyToStart, trackToFollow, spawnDelay, spawnTotal);
+            if (!activateGenerator.isRunning)
+            {
+                Debug.Log($"<color=orange> player encountered</color>");
+                activateGenerator.GenerateEnemies(EnemyToStart, trackToFollow, spawnDelay, spawnTotal);
+            }
+            else
+            {
+                Debug.Log("Not Spawning as already triggered");
+            }
         }
     }
-
 }

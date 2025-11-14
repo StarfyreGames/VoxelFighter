@@ -18,7 +18,7 @@ public class LevelEndMarker : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             actscroller.scrolling = false;
-            PlayerScript.Instance.engagedBoss = true;
+            PlayerManager.Instance.player.engagedBoss = true;
             Debug.Log($"<color=red>ENTER THE BOSS!</color>");
 
         }

@@ -263,13 +263,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
   yPos: 0
   shieldPoints: 0
-  maxShieldPoints: 5
+  maxShieldPoints: 30
   lives: 2
   playerPrefab: {fileID: 2508449768826772164}
   Scroller: {fileID: 0}
   actscroller: {fileID: 0}
   shieldSlider: {fileID: 0}
   iAmInvincible: 0
+  alreadyHit: 0
   engagedBoss: 0
 --- !u!114 &7253014696817047929
 MonoBehaviour:

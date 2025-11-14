@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &64995215
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -370,6 +371,7 @@ GameObject:
   - component: {fileID: 160140365}
   - component: {fileID: 160140364}
   - component: {fileID: 160140368}
+  - component: {fileID: 160140369}
   m_Layer: 0
   m_Name: EnemyGeneratorOne
   m_TagString: Untagged
@@ -492,6 +494,19 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: 0, z: 0}
   enemyToSpawn: {fileID: 0}
   spawnedEnemyScript: {fileID: 0}
+--- !u!114 &160140369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160140363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &182069140
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &202850441
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,6 +712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &259042838
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &307519622
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1136,6 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &394383439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1445,6 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &581334936
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1748,6 +1768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &737642991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1780,7 @@ GameObject:
   - component: {fileID: 737642992}
   - component: {fileID: 737642993}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: ShieldSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1951,6 +1972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &809687281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,6 +2211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &946015907
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2291,6 +2314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &993852212
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2393,6 +2417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &1024823618
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2863,6 +2888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &1164498593
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2965,6 +2991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &1165043762
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3463,6 +3490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &1315829512
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3757,6 +3785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &1356157724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,6 +3888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &1395549232
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,6 +4015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &1415913810
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4143,6 +4174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &1517620570
 GameObject:
   m_ObjectHideFlags: 0
@@ -4245,6 +4277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &1569260116
 GameObject:
   m_ObjectHideFlags: 0
@@ -4526,6 +4559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &1722728051
 GameObject:
   m_ObjectHideFlags: 0
@@ -4680,6 +4714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &1790914019
 GameObject:
   m_ObjectHideFlags: 0
@@ -4724,6 +4759,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e4ef0a561090e4fb54fb1262679c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  lives: 2
+  playerPrefab: {fileID: 0}
+  playerLives: 2
+  score: 0
+  Scroller: {fileID: 1973794005}
+  actscroller: {fileID: 0}
+  shieldSlider: {fileID: 737642993}
+  player: {fileID: 0}
 --- !u!1 &1837281865
 GameObject:
   m_ObjectHideFlags: 0
@@ -4863,6 +4906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &1859783610
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5376,6 +5420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &2007277789
 GameObject:
   m_ObjectHideFlags: 0
@@ -5422,6 +5467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &2007277793
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5524,6 +5570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!23 &2014664162
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5682,6 +5729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &2043309651
 GameObject:
   m_ObjectHideFlags: 0
@@ -5877,6 +5925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1 &2130353617
 GameObject:
   m_ObjectHideFlags: 0
@@ -5979,6 +6028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!1001 &1366806853151664644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6224,9 +6274,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 737642993}
     - target: {fileID: 69113895754119938, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
-      propertyPath: maxShieldPoints
-      value: 30
-      objectReference: {fileID: 0}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 1790914021}
     - target: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
       propertyPath: m_Name
       value: Player (1)

@@ -19,6 +19,8 @@ public class EnemyScript : MonoBehaviour
     int passCount = 0;
     public int hitpoints;
 
+    Leveller leveller;
+
     bool returnPath = false;
     public bool iAmAlive = false;
 
@@ -31,6 +33,7 @@ public class EnemyScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         hitpoints = maxHitpoints;
+        leveller = GetComponent<Leveller>();
     }
 
     private void Update()
@@ -80,7 +83,7 @@ public class EnemyScript : MonoBehaviour
             return;
 
         Vector3 target = waypointPath[nextWaypoint].position;
-        target.y = PlayerScript.Instance.yPos;
+        target.y = leveller.player.yPos;
 
         Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.deltaTime);
         rb.MovePosition(newPos);

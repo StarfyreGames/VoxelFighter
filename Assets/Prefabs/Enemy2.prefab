@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 5428415567664453863}
   - component: {fileID: 7832160503748619309}
   - component: {fileID: 2354925685337784922}
+  - component: {fileID: -1869852895441825345}
   - component: {fileID: 6849876865485787531}
   m_Layer: 0
   m_Name: Enemy2
@@ -273,11 +274,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
   waypointTrack: {fileID: 0}
   waypointPath: []
-  speed: 500
+  speed: 200
   maxHitpoints: 15
   maxPassCount: 2
-  hitpoints: 2
+  hitpoints: 15
   iAmAlive: 0
+--- !u!114 &-1869852895441825345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8624833140447792632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!54 &6849876865485787531
 Rigidbody:
   m_ObjectHideFlags: 0

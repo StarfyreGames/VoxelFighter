@@ -14,9 +14,7 @@ public class EnemyGenerator : MonoBehaviour
 
     private void Update()
     {
-        Vector3 myPos = transform.position;
-        myPos.y = PlayerScript.Instance.yPos;
-        transform.position = myPos;        
+               
     }
 
     public void GenerateEnemies()

@@ -11,17 +11,17 @@ public class GeneratorTrigger : MonoBehaviour
 
     private void Start()
     {
-        Vector3 myPos = transform.position;
-        myPos.y = PlayerScript.Instance.yPos;
-        transform.position = myPos;
+        //Vector3 myPos = transform.position;
+        //myPos.y = PlayerScript.Instance.yPos;
+        //transform.position = myPos;
 
     }
 
     private void Update()
     {
-        Vector3 myPos = transform.position;
-        myPos.y = PlayerScript.Instance.yPos;
-        transform.position = myPos;
+        //Vector3 myPos = transform.position;
+        //myPos.y = PlayerScript.Instance.yPos;
+        //transform.position = myPos;
     }
 
 

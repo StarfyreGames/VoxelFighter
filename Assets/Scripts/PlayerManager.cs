@@ -100,6 +100,8 @@ public class PlayerManager : MonoBehaviour
         else if (playerLives >= 0)
         {
             Debug.Log($"<color=red>PLAYER DESTROYED GAME OVER</color>");
+            GameManager.Instance.PopUpScreen.SetActive(true);
+            GameManager.Instance.PopUpText.text = $"Player Destroyed\nGAME OVER!";
             Destroy(player.gameObject);
         }
 

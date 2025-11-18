@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
   waypointTrack: {fileID: 0}
   waypointPath: []
-  speed: 350
+  speed: 150
   maxHitpoints: 15
   maxPassCount: 2
   hitpoints: 15
@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468447e12f676b49af92694174481fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
+  player: {fileID: 0}
 --- !u!54 &3353824723581162274
 Rigidbody:
   m_ObjectHideFlags: 0

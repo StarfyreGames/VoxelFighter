@@ -11,8 +11,8 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] public List<Transform> waypointPath;
 
     [Header("Enemy Variables")]
-    [SerializeField] public float speed = 350f;
-    [SerializeField] public int maxHitpoints = 2;
+    [SerializeField] public float speed = 50f; //alterable in inspector
+    [SerializeField] public int maxHitpoints = 10;//alterable in inspector
     [SerializeField] public int maxPassCount = 0; //might be moved or changed by generator logic.
 
     int nextWaypoint = 0;
@@ -85,9 +85,11 @@ public class EnemyScript : MonoBehaviour
         Vector3 target = waypointPath[nextWaypoint].position;
         target.y = leveller.player.yPos;
 
-        Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.deltaTime);
+        Vector3 newPos = Vector3.MoveTowards(rb.position, target, (speed * 10) * Time.deltaTime);
         rb.MovePosition(newPos);
-        Debug.Log($"<color=#ff5c00> MovePosition tried</color>");
+        //Debug.Log($"<color=#ff5c00> MovePosition tried</color>");
+
+
 
         if (passCount < maxPassCount)
         {
@@ -158,6 +160,7 @@ public class EnemyScript : MonoBehaviour
         {
             Debug.Log($"<color=orange> registering player collision</color>");
             damage = 10; //standard damage for collision
+            TakeDamage(damage);
         }
         else
         {

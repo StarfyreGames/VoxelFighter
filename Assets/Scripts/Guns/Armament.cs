@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Guns
 {
-    public class Armament
+    public class Armament : IModifiable
     {
         private readonly Specs _masterSpecsTemplate;
         private readonly GameObject _host;

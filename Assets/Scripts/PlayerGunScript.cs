@@ -4,7 +4,7 @@ using Guns;
 using Guns.Modifications;
 using UnityEngine;
 
-public class PlayerGunScript : MonoBehaviour
+public class PlayerGunScript : MonoBehaviour, IModifiable
 {
     public List<Vector3> gunSlots;
 
@@ -33,5 +33,22 @@ public class PlayerGunScript : MonoBehaviour
     private void OnDrawGizmos()
     {
         _armament.DrawGizmos();
+    }
+
+    public void ApplyModification(AModification modification)
+    {
+        _armament.ApplyModification(modification);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Powerup"))
+            HandleApplyPowerUp(other.gameObject);
+    }
+
+    private void HandleApplyPowerUp(GameObject powerUp)
+    {
+        var powerUpScript = powerUp.GetComponent<PowerUpScript>();
+        powerUpScript.ApplyPowerUpTo(this);
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Guns
 {
-    public record Specs(GunSpec GunSpec, BulletSpec BulletSpec, AClip Clip)
+    public record Specs(GunSpec GunSpec, BulletSpec BulletSpec, AClip Clip) : IModifiable
     {
         private const float BaseGunFireRate = 3;
         
-        private const float BaseBulletDamage = 10;
+        private const int BaseBulletDamage = 10;
         private const float BaseBulletPower = 100;
         private static readonly Vector3 BaseBulletScale = new(2f, 2f, 2f);
 
@@ -67,7 +67,7 @@ namespace Guns
         public Vector3 scale;
         public Vector3 velocity;
         
-        public float damage;
+        public int damage;
         public DamageType damageType;
         public Origin origin;
 

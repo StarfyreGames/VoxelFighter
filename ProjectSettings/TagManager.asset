@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
-  - TestingPowerpllot
   - shot
+  - Powerup
   layers:
   - Default
   - TransparentFX

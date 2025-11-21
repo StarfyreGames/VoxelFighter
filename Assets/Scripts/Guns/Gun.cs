@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Guns
 {
-    public class Gun
+    public class Gun : IModifiable
     {
         private readonly Specs _specs;
         private DateTime _lastFire;
@@ -17,6 +17,7 @@ namespace Guns
 
         public void Fire()
         {
+            Debug.Log("'+++++' " + _specs.GunSpec.fireRate);
             var duration = TimeSpan.FromSeconds(1 / _specs.GunSpec.fireRate);
             var timeElapsed = DateTime.UtcNow - _lastFire;
             if (timeElapsed < duration) return;
@@ -32,7 +33,9 @@ namespace Guns
 
         public void ApplyModification(AModification modification)
         {
+            Debug.Log("'+++++ before' " + _specs.GunSpec.fireRate);
             _specs.ApplyModification(modification);
+            Debug.Log("'+++++ after' " + _specs.GunSpec.fireRate);
         }
 
         public void DrawGizmo()

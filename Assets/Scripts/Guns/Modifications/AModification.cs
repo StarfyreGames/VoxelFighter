@@ -25,4 +25,9 @@ namespace Guns.Modifications
             // Default intentionally left blank
         }
     }
+
+    public interface IModifiable
+    {
+        public void ApplyModification(AModification modification);
+    }
 }

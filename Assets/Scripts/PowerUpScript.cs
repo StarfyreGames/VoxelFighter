@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 public class PowerUpScript : MonoBehaviour
 {
-    private List<AModification> _modifications;
+    private List<AModification> _modifications;    
     
     private void Awake()
     {
@@ -17,7 +17,9 @@ public class PowerUpScript : MonoBehaviour
     public void ApplyPowerUpTo(IModifiable modifiable)
     {
         _modifications.ForEach(modifiable.ApplyModification);
+        PlayerManager.Instance.pickUpInfo.text += $"\n\nApplying {gameObject.name} to craft";
         DestroyMe();
+        
     }
 
     private void DestroyMe()

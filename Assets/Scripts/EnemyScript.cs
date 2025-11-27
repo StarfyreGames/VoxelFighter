@@ -6,15 +6,18 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    [Header("Waypoints")] [SerializeField] public WaypointTrack waypointTrack;
+    [Header("Waypoints")]
+    [SerializeField] public WaypointTrack waypointTrack;
     [SerializeField] public List<Transform> waypointPath;
 
-    [Header("Enemy Variables")] [SerializeField]
-    public float speed = 50f; //alterable in inspector
-
+    [Header("Enemy Variables")] 
+    [SerializeField] public float speed = 50f; //alterable in inspector
     [SerializeField] public int maxHitpoints = 10; //alterable in inspector
     [SerializeField] public int maxPassCount = 0; //might be moved or changed by generator logic.
     [SerializeField] public int damageForHittingPlayer = 10;
+
+    [Header("Enemy Values")]
+    [SerializeField] public int scoreValue = 100;
 
     int nextWaypoint = 0;
     int passCount = 0;
@@ -173,7 +176,7 @@ public class EnemyScript : MonoBehaviour
         if (hitpoints <= 0)
         {
             hitpoints = 0;
-            //Add score level to award player here
+            PlayerManager.Instance.AddToScore(scoreValue);
             Debug.Log("ENEMY KILLED");
             DestroyMe();
         }

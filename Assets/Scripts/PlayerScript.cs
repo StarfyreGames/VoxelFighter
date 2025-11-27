@@ -21,15 +21,7 @@ public class PlayerScript : MonoBehaviour
     public bool engagedBoss = false;
 
     private void Awake()
-    {
-        //if (Instance != null && Instance != this)
-        //{
-        //    Destroy(this);
-        //}
-        //else
-        //{
-        //    Instance = this;
-        //}
+    {  
         playerManager = PlayerManager.Instance;
         shieldPoints = maxShieldPoints;
     }

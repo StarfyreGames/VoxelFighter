@@ -51,6 +51,15 @@ public class EnemyGenerator : MonoBehaviour
 
     }
 
+    public void GenerateEnemies(GameObject enemyType, WaypointTrack followPath, float delay, int spawnTotal, int passCountOverride)
+    {     
+        spawnPosition = transform.position;
+
+        if (!isRunning)
+            StartCoroutine(GenerationCycle(enemyType, followPath, delay, spawnTotal, passCountOverride));
+
+    }
+
     IEnumerator GenerationCycle(GameObject enemy, WaypointTrack path, float delay, int spawnTotal)
     {
         isRunning = true;
@@ -69,7 +78,28 @@ public class EnemyGenerator : MonoBehaviour
         yield return new WaitForSeconds(2f);
         isRunning = false;
         Debug.Log($"<color=red> Generator Suspended");
-    }      
-
-
     }
+
+    IEnumerator GenerationCycle(GameObject enemy, WaypointTrack path, float delay, int spawnTotal, int passCount)
+    {
+        isRunning = true;
+        for (int i = 0; i < spawnTotal; i++)
+        {
+            Debug.Log($"<color=blue> Generate called.</color>");
+            GameObject newEnemy = Instantiate(enemy, spawnPosition, spawnRotation);
+            spawnedEnemyScript = newEnemy.GetComponent<EnemyScript>();
+            spawnedEnemyScript.waypointTrack = path;
+            spawnedEnemyScript.CreatePath(path);
+            spawnedEnemyScript.iAmAlive = true;
+            spawnedEnemyScript.maxPassCount = passCount;
+            Debug.Log("Instantiate");
+            yield return new WaitForSeconds(delay);
+        }
+
+        yield return new WaitForSeconds(2f);
+        isRunning = false;
+        Debug.Log($"<color=red> Generator Suspended");
+    }
+
+
+}

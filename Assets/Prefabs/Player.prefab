@@ -264,11 +264,7 @@ MonoBehaviour:
   yPos: 0
   shieldPoints: 0
   maxShieldPoints: 30
-  lives: 2
-  playerPrefab: {fileID: 2508449768826772164}
-  Scroller: {fileID: 0}
-  actscroller: {fileID: 0}
-  shieldSlider: {fileID: 0}
+  playerManager: {fileID: 0}
   iAmInvincible: 0
   alreadyHit: 0
   engagedBoss: 0
@@ -317,6 +313,9 @@ MonoBehaviour:
   gunSlots:
   - {x: -15, y: -3, z: 0}
   - {x: 15, y: -3, z: 0}
+  - {x: 0, y: -2, z: 0}
+  - {x: 6, y: -1, z: 0}
+  - {x: -6, y: -1, z: 0}
 --- !u!114 &554274462682506016
 MonoBehaviour:
   m_ObjectHideFlags: 0

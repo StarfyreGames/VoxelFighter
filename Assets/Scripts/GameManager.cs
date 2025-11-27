@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public GameObject PopUpScreen;
     [SerializeField] public TextMeshProUGUI PopUpText;
+    [SerializeField] public Image FadeScreen;
 
     private void Awake()
     {
@@ -29,6 +30,9 @@ public class GameManager : MonoBehaviour
     //Handle Scene Changes?
     //keeping copy of current upgrades etc when moving to next level
 
-
+    public void KillGame()
+    {
+        Destroy(this);
+    }
 
 }

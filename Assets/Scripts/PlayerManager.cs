@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -19,6 +22,8 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Unity UI Variables")]//will be moved to player manager
     [SerializeField] public Slider shieldSlider;
+    [SerializeField] public TextMeshProUGUI pickUpInfo;
+    [SerializeField] public TextMeshProUGUI scoreDisplay;
 
     public static PlayerManager Instance { get; private set; }
     [SerializeField] public PlayerScript player;
@@ -33,17 +38,24 @@ public class PlayerManager : MonoBehaviour
         {
             Instance = this;
         }
-        
+
         player = FindFirstObjectByType<PlayerScript>();
 
         Debug.Log($"Scroller = {Scroller}");
         actscroller = Scroller.GetComponent<TerrainScroller>();
-        shieldSlider.maxValue = player.maxShieldPoints;       
+        shieldSlider.maxValue = player.maxShieldPoints;
+    }
+
+    private void Start()
+    {
+        pickUpInfo.text = $"Monitoring Systems";
     }
 
     private void Update()
     {
         shieldSlider.value = player.shieldPoints;
+        scoreDisplay.text = DisplayScore(score);
+        
     }
 
     public void TakeDamage(int dmg)
@@ -76,8 +88,6 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-
-
     IEnumerator StopMultiCrash()
     {
         player.alreadyHit = true;
@@ -101,8 +111,8 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log($"<color=red>PLAYER DESTROYED GAME OVER</color>");
             GameManager.Instance.PopUpScreen.SetActive(true);
-            GameManager.Instance.PopUpText.text = $"Player Destroyed\nGAME OVER!";
-            Destroy(player.gameObject);
+            GameManager.Instance.PopUpText.text = $"Player Destroyed\nGAME OVER!";            
+            StartCoroutine(EndGame());
         }
 
     }
@@ -131,6 +141,41 @@ public class PlayerManager : MonoBehaviour
         player.shieldPoints = player.maxShieldPoints;
         shieldSlider.value = player.shieldPoints;
         Debug.Log($"Player no longer invincible");
+    }
+
+    public void AddToScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+    }
+
+    public string DisplayScore(int score)
+    {
+        string scoreDisplay ="";
+        scoreDisplay = score.ToString("D9");
+        return scoreDisplay;
+    }
+
+    public IEnumerator EndGame()
+    {
+        
+        yield return new WaitForSeconds(5f); //wait for explosion effect
+
+        //FADE OVER 15 SECONDS\\
+        float duration = 15f;
+        float elapsed = 0f;
+
+        Color c = GameManager.Instance.FadeScreen.color;
+        while(elapsed < duration) 
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsed / duration);
+            GameManager.Instance.FadeScreen.color = new Color(c.r, c.g, c.b, alpha);
+            yield return null;
+        }       
+        
+        SceneManager.LoadScene("Title");
+        GameManager.Instance.KillGame();
+        Destroy(this);
     }
 
 }

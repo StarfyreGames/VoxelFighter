@@ -274,9 +274,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
   waypointTrack: {fileID: 0}
   waypointPath: []
-  speed: 200
+  speed: 100
   maxHitpoints: 15
   maxPassCount: 2
+  damageForHittingPlayer: 10
   hitpoints: 15
   iAmAlive: 0
 --- !u!114 &-1869852895441825345

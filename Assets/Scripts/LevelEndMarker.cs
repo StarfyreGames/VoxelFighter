@@ -5,7 +5,7 @@ public class LevelEndMarker : MonoBehaviour
 {
     public GameObject Scroller;
     public TerrainScroller actscroller;
-    //public BossController boss;
+    //public BossFightScript boss;
 
     private void Start()
     {
@@ -29,8 +29,8 @@ public class LevelEndMarker : MonoBehaviour
     //We must also REMEMBER TO RESET THE ENGAGEDBOSS TAG!
 
     IEnumerator GameOverer()
-    {
-        yield return new WaitForSeconds(30f);
+    {        
+        yield return new WaitForSeconds(300f);
         StartCoroutine(PlayerManager.Instance.EndGame());
     }
 

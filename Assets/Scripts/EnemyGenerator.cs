@@ -10,40 +10,32 @@ public class EnemyGenerator : MonoBehaviour
     Quaternion spawnRotation = Quaternion.Euler(0,180,0);
     public GameObject enemyToSpawn;
     public EnemyScript spawnedEnemyScript;
-    public bool isRunning { get; private set; }
+    public bool isRunning { get; set; }
 
     private void Update()
     {
                
     }
 
-    public void GenerateEnemies()
+    public void GenerateEnemies(float delay, int spawnTotal, int passCountOverride)
     {
         int rand1 = Random.Range(0, EnemyOptions.Length); //randomise what enemy shows up
         int rand2 = Random.Range(0, WaypointTracks.Length);
         
         enemyToSpawn = EnemyOptions[rand1];
+        WaypointTrack enemyTrack = WaypointTracks[rand2];
 
-        GameObject newEnemy = Instantiate(enemyToSpawn, spawnPosition, spawnRotation);
-        spawnedEnemyScript = newEnemy.GetComponent<EnemyScript>();
-        spawnedEnemyScript.waypointTrack = WaypointTracks[rand2];
-        spawnedEnemyScript.CreatePath(spawnedEnemyScript.waypointTrack);
-        spawnedEnemyScript.iAmAlive = true;
+        if(!isRunning)
+            StartCoroutine(GenerationCycle(enemyToSpawn, enemyTrack, delay, spawnTotal, passCountOverride));
 
+        
     }
 
     public void GenerateEnemies(GameObject enemyType, WaypointTrack followPath, float delay, int spawnTotal)
     {
         // this will take in a specific enemy type and waypoint track to spawn an enemy on. 
         // im still weighing up the value of having predictable enemy spawns. Either way its here.
-
-        //Debug.Log($"<color=blue> Generate called.</color>");
-        //GameObject newEnemy = Instantiate(enemyType, spawnPosition,spawnRotation);        
-        //spawnedEnemyScript = newEnemy.GetComponent<EnemyScript>();
-        //spawnedEnemyScript.waypointTrack = followPath;
-        //spawnedEnemyScript.CreatePath(followPath);
-        //spawnedEnemyScript.iAmAlive = true;
-        //Debug.Log("Instantiate");
+        
         spawnPosition = transform.position;
 
         if(!isRunning)

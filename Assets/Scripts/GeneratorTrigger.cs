@@ -8,9 +8,7 @@ public class GeneratorTrigger : MonoBehaviour
     [SerializeField] public WaypointTrack trackToFollow;
     [SerializeField] public float spawnDelay;
     [SerializeField] public int spawnTotal;
-    [SerializeField] public int passCountOverride;
-
-    public bool levelEnd;
+    [SerializeField] public int passCountOverride;    
 
     private void Start()
     {
@@ -35,14 +33,8 @@ public class GeneratorTrigger : MonoBehaviour
             if (!activateGenerator.isRunning)
             {
                 Debug.Log($"<color=orange> player encountered</color>");
-                if (levelEnd)
-                {
-                    activateGenerator.GenerateEnemies(EnemyToStart, trackToFollow, spawnDelay, spawnTotal, passCountOverride);
-                }
-                else
-                {
-                    activateGenerator.GenerateEnemies(EnemyToStart, trackToFollow, spawnDelay, spawnTotal);
-                }
+
+                activateGenerator.GenerateEnemies(EnemyToStart, trackToFollow, spawnDelay, spawnTotal, passCountOverride);               
 
             }
             else

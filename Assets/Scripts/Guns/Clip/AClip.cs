@@ -15,8 +15,9 @@ namespace Guns.Clip
         [CanBeNull]
         protected GameObject BuildBullet(GunSpec gunSpec, BulletSpec bulletSpec)
         {
+            
             var position = gunSpec.Position;
-            var bullet = Object.Instantiate(gunSpec.bulletPrefab, position, Quaternion.identity);
+            var bullet = Object.Instantiate(gunSpec.bulletPrefab, position, Quaternion.Euler(90f, 0f, 0f));
             var projectile = bullet.GetComponent<Projectile>();
 
             if (projectile == null)

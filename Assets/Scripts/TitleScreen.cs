@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using System.Collections;
 using Unity.VisualScripting;
 using TMPro;
-using UnityEditor.SearchService;
 
 public class TitleScreen : MonoBehaviour
 {
@@ -46,7 +45,7 @@ public class TitleScreen : MonoBehaviour
             yield return new WaitForSeconds(10f);
 
             yield return StartCoroutine(FadeImage(frame, Presents, 1f));
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
 
             yield return StartCoroutine(FadeImage(frame, Title, 1f));
 

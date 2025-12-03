@@ -36,6 +36,7 @@ public class BossFightScript : MonoBehaviour
     {
         //ChangeMusic
         bossGenerator.GenerateBoss();
+        enemyGenerator.SetGeneratorOptions(EnemyOptions, WaypointTracks);
         yield return new WaitForSeconds(30f);
         enemyGenerator.GenerateEnemies(spawnDelay, spawnTotal, passCountOverride); //sends a random enemy to spawn
         yield return new WaitForSeconds(90f);

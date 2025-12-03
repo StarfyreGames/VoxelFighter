@@ -17,6 +17,13 @@ public class EnemyGenerator : MonoBehaviour
                
     }
 
+    public void SetGeneratorOptions(GameObject[] EnemyOptions, WaypointTrack[] waypointTracks)
+    {
+        this.EnemyOptions = EnemyOptions;
+        this.WaypointTracks = waypointTracks;
+
+    }
+
     public void GenerateEnemies(float delay, int spawnTotal, int passCountOverride)
     {
         int rand1 = Random.Range(0, EnemyOptions.Length); //randomise what enemy shows up

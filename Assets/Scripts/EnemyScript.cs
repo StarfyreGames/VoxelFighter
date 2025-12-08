@@ -42,15 +42,19 @@ public class EnemyScript : MonoBehaviour
 
     private void Update()
     {
+        if (!iAmAlive)       
+        {
+            DestroyMe();
+            return;
+        }
+    }
+
+    private void FixedUpdate()
+    {
         if (iAmAlive)
         {
             //move towards waypoint record.
             CheckAndMove();
-        }
-        else
-        {
-            DestroyMe();
-            return;
         }
     }
 
@@ -89,7 +93,7 @@ public class EnemyScript : MonoBehaviour
         Vector3 target = waypointPath[nextWaypoint].position;
         target.y = leveller.player.yPos;
 
-        Vector3 newPos = Vector3.MoveTowards(rb.position, target, (speed * 100) * Time.deltaTime);
+        Vector3 newPos = Vector3.MoveTowards(rb.position, target, (speed * Time.deltaTime));
         rb.MovePosition(newPos);
         //Debug.Log($"<color=#ff5c00> MovePosition tried</color>");
 

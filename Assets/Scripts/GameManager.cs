@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] public GameObject PopUpScreen;
+    [SerializeField] public GameObject BossMeter;
     [SerializeField] public TextMeshProUGUI PopUpText;
     [SerializeField] public Image FadeScreen;
 
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PopUpScreen.SetActive(false);
+        BossMeter.SetActive(false);
     }
 
     //Handle Scene Changes?

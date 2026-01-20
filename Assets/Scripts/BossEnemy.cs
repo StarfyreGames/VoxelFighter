@@ -21,7 +21,7 @@ public class BossEnemy : MonoBehaviour
 
     int nextWaypoint = 0;
     int passCount = 0;
-    public int hitpoints;
+    public int hitpoints;    
 
     Leveller leveller;
 
@@ -56,7 +56,7 @@ public class BossEnemy : MonoBehaviour
         }
         else
         {
-            DestroyMe();
+            KillMe();
             return;
         }
     }
@@ -141,7 +141,7 @@ public class BossEnemy : MonoBehaviour
         if (passCount >= maxPassCount)
         {
             Debug.Log($"Enemy <color=red> DESTROYED </color> due to max pass");
-            DestroyMe();
+            KillMe();
         }
     }
 
@@ -185,7 +185,7 @@ public class BossEnemy : MonoBehaviour
             hitpoints = 0;
             PlayerManager.Instance.AddToScore(scoreValue);
             Debug.Log("ENEMY KILLED");
-            DestroyMe();
+            KillMe();
         }
         else
         {
@@ -194,12 +194,17 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
-    public void DestroyMe()
+    public void KillMe()
     {
         //add a call to explosion animation here with a wait
         iAmAlive = false;
 
-        Debug.Log($"Enemy Destroyed.");
+        Debug.Log($"Enemy {this.name} Destroyed.");
+        DestroyME();
+    }
+
+    public void DestroyME()
+    {
         GameObject.Destroy(gameObject);
     }
 }

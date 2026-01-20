@@ -752,8 +752,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossEnemy
   waypointTrack: {fileID: 0}
   waypointPath: []
-  speed: 100
-  maxHitpoints: 700
+  speed: 300
+  maxHitpoints: 1500
   maxPassCount: 999
   damageForHittingPlayer: 10
   scoreValue: 100000

@@ -33,7 +33,7 @@ namespace utils
         public Vector3 TopRight => _topRight;
         public Vector3 BottomLeft => _bottomLeft;
         public Vector3 BottomRight => _bottomRight;
-
+        
         public ViewportPlane(Vector3 topLeft, Vector3 topRight, Vector3 bottomLeft,
             Vector3 bottomRight)
         {

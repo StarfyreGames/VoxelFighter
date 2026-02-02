@@ -21,5 +21,7 @@ namespace Gun.Model
 
         [Range(0f, 1f)]
         public float passthroughFrictionFactor;
+        
+        public GameObject projectilePrefab;
     }
 }

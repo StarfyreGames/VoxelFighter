@@ -10,26 +10,38 @@ namespace Gun.Scripts
     public class Weapon : MonoBehaviour
     {
         [SerializeField] public Transform muzzle;
-        [SerializeField] public GameObject projectilePrefab;
-        [SerializeField] public FireMode fireMode;
-        [SerializeField] public Bullet bullet;
+
+        private FireMode _fireMode;
+        private Bullet _bullet;
+        private bool _initialized;
 
         private float _lastFired;
 
-        private void Fire()
+        public void Init(FireMode filterMode, Bullet bullet)
         {
+            _fireMode = filterMode;
+            _bullet = bullet;
+            _initialized = true;
+        }
+
+        public void Fire()
+        {
+            if (!_initialized) return;
+
             // Don't shoot too quickly
-            if (Time.fixedTime - _lastFired < fireMode.fireRate) return;
+            if (Time.fixedTime - _lastFired < _fireMode.fireRate) return;
             _lastFired = Time.fixedTime;
-            
+
             // Get the bullets into the scene and attach the relevant information
-            foreach (
-                var bulletGo in BuildBulletTransforms(fireMode.numberOfBullets)
-                    .Select(bulletTransform => Instantiate(projectilePrefab, bulletTransform.position, bulletTransform.rotation))
-            )
+            var firedBullets = BuildBulletTransforms(_fireMode.numberOfBullets)
+                .Select(bulletTransform =>
+                    Instantiate(_bullet.projectilePrefab, bulletTransform.position, bulletTransform.rotation)
+                );
+
+            foreach (var bulletGo in firedBullets)
             {
-                bulletGo.transform.localScale = Vector3.one * bullet.scale;
-                bulletGo.GetComponent<Projectile>().bullet = bullet;
+                bulletGo.transform.localScale = Vector3.one * _bullet.scale;
+                bulletGo.GetComponent<Projectile>().bullet = _bullet;
             }
         }
 
@@ -44,7 +56,7 @@ namespace Gun.Scripts
             for (var i = 0; i < count; i++)
             {
                 var t = (float)i / (count - 1);
-                var degrees = Mathf.Lerp(-fireMode.spreadAngle / 2f, fireMode.spreadAngle / 2f, t);
+                var degrees = Mathf.Lerp(-_fireMode.spreadAngle / 2f, _fireMode.spreadAngle / 2f, t);
                 var spreadRotation = Quaternion.AngleAxis(degrees, muzzle.forward);
 
                 bulletTransforms[i] = Instantiate(muzzle, muzzle.position, spreadRotation);
@@ -55,12 +67,8 @@ namespace Gun.Scripts
 
         private void Start()
         {
+            if (!_initialized) return;
             _lastFired = Time.fixedTime;
-        }
-
-        private void Update()
-        {
-            if (fireMode.autoFire) Fire();
         }
     }
 }

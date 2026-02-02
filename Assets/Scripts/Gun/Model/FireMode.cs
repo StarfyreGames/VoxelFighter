@@ -6,9 +6,7 @@ namespace Gun.Model
     public class FireMode : ScriptableObject
     {
         public float fireRate;
-
-        public bool autoFire;
-
+        
         [Min(1)]
         public int numberOfBullets = 1;
 

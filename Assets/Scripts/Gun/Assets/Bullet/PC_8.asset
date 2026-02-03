@@ -18,3 +18,4 @@ MonoBehaviour:
   maxPassthroughImpacts: 1
   passthroughDamageReductionFactor: 0
   passthroughFrictionFactor: 0
+  projectilePrefab: {fileID: 3992474081883656927, guid: 579871c5d61e9417daecc004348cbe63, type: 3}

@@ -39,7 +39,7 @@ namespace Gun.Scripts
             foreach (var gunSlotSave in layout.Guns())
             {
                 // Can't create a gun slot that doesn't exist.
-                if (gunSlotSave.Slot < 0 || gunSlotSave.Slot >= _rack.Length) return;
+                if (gunSlotSave.Slot < 0 || gunSlotSave.Slot > _rack.Length) return;
 
                 LoadGunIntoScene(
                     gunSlotSave.Slot,

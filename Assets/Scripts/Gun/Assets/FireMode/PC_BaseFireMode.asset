@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850adc905e2b4657ae5be7126bf4547f, type: 3}
   m_Name: PC_BaseFireMode
   m_EditorClassIdentifier: Assembly-CSharp::Gun.Model.FireMode
-  fireRate: 1.5
-  autoFire: 0
+  fireRate: 0.8
   numberOfBullets: 1
   spreadAngle: 0

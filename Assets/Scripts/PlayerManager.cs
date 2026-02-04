@@ -160,8 +160,8 @@ public class PlayerManager : MonoBehaviour
         
         yield return new WaitForSeconds(5f); //wait for explosion effect
 
-        //FADE OVER 15 SECONDS\\
-        float duration = 15f;
+        //FADE OVER 5 SECONDS\\
+        float duration = 5f;
         float elapsed = 0f;
 
         Color c = GameManager.Instance.FadeScreen.color;

@@ -7,8 +7,10 @@ using UnityEngine.Serialization;
 
 public class PowerUpScript : MonoBehaviour
 {
-    private List<AModification> _modifications;    
-    
+    private List<AModification> _modifications;
+    public bool isTriggered = false;
+
+
     private void Awake()
     {
         _modifications = GetComponents<AModification>().ToList();
@@ -16,7 +18,12 @@ public class PowerUpScript : MonoBehaviour
 
     public void ApplyPowerUpTo(IModifiable modifiable)
     {
+
+        if (isTriggered)
+            return;
+
         _modifications.ForEach(modifiable.ApplyModification);
+        isTriggered = true;
         PlayerManager.Instance.pickUpInfo.text += $"\n\nApplying {gameObject.name} to craft";
         DestroyMe();
         

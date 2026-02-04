@@ -54,22 +54,31 @@ public class BossGenerator : MonoBehaviour
             bossName = BossPrefab.name;
             Debug.Log($"Boss generated - {bossName}");
             spawnedEnemyScript = newBoss.GetComponent<BossEnemy>();
+
+            //subscribe to boss death event
+            spawnedEnemyScript.OnBossDied += HandleBossDeath;
+
             Debug.Log($"Boss Script - {spawnedEnemyScript}");
             spawnedEnemyScript.waypointTrack = BossTrack;
             spawnedEnemyScript.CreatePath(spawnedEnemyScript.waypointTrack);
             spawnedEnemyScript.iAmAlive = true;
             bossActivated = true;
             BossName.text = bossName;
-            StartCoroutine(WaitDeath());
         }
     }
 
-     IEnumerator WaitDeath()
+    private void HandleBossDeath()
     {
-
-        yield return new WaitWhile(() => newBoss.GetComponent<BossEnemy>().iAmAlive);
+        Debug.Log("Boss Death Detected!");
         bossActivated = false;
     }
+
+    // IEnumerator WaitDeath()
+    //{
+
+    //    yield return new WaitWhile(() => newBoss.GetComponent<BossEnemy>().iAmAlive);
+    //    bossActivated = false;
+    //}
 
 
 }

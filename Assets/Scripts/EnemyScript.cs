@@ -22,6 +22,7 @@ public class EnemyScript : MonoBehaviour
     int nextWaypoint = 0;
     int passCount = 0;
     public int hitpoints;
+    public bool isDestroyed = false;
 
     Leveller leveller;
 
@@ -179,9 +180,16 @@ public class EnemyScript : MonoBehaviour
 
         if (hitpoints <= 0)
         {
+            
             hitpoints = 0;
-            PlayerManager.Instance.AddToScore(scoreValue);
-            Debug.Log("ENEMY KILLED");
+
+            if (isDestroyed) { return; }
+            else
+            {
+                PlayerManager.Instance.AddToScore(scoreValue);
+                isDestroyed = true;
+                Debug.Log("ENEMY KILLED");
+            }
             DestroyMe();
         }
         else
@@ -192,8 +200,9 @@ public class EnemyScript : MonoBehaviour
     }
 
     public void DestroyMe()
-    {
+    {              
         //add a call to explosion animation here with a wait
+     
         iAmAlive = false;
 
         Debug.Log($"Enemy Destroyed.");

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Net;
 
 
 public class BossFightScript : MonoBehaviour
@@ -18,13 +19,19 @@ public class BossFightScript : MonoBehaviour
     [SerializeField] public int passCountOverride;
 
     bool bossActive = false;
-
+    bool isTriggered = false;
+   
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (isTriggered)
+            return;
+
+        if (other.CompareTag("Player"))
         {
             if (!bossGenerator.isRunning)
             {
+                isTriggered = true;
+
                 Debug.Log($"<color=orange> player encountered, for boss</color>");
                 Debug.Log($"Boss Generator is : {bossGenerator.name}");
 
@@ -40,10 +47,14 @@ public class BossFightScript : MonoBehaviour
 
     private void Update()
     {
+        bossGenerator.spawnedEnemyScript.OnBossDied += () => { bossActive = false; };
+
         if (bossActive)
         {
             BossMeter.value = (float)bossGenerator.newBoss.GetComponent<BossEnemy>().hitpoints / bossGenerator.newBoss.GetComponent<BossEnemy>().maxHitpoints;
         }
+        else
+        { }
     }
 
 
@@ -51,14 +62,16 @@ public class BossFightScript : MonoBehaviour
     {
         //ChangeMusic
         bossGenerator.GenerateBoss();
+
         BossMeter.value = (float)bossGenerator.newBoss.GetComponent<BossEnemy>().hitpoints/ bossGenerator.newBoss.GetComponent<BossEnemy>().maxHitpoints;
+
+        //subscribe to ondeath event
+        bossGenerator.spawnedEnemyScript.OnBossDied += () => { bossGenerator.bossActivated = false; };
         
         bossActive = true;
         GameManager.Instance.BossMeter.SetActive(true);
-        //enemyGenerator.SetGeneratorOptions(EnemyOptions, WaypointTracks);
-        //yield return new WaitForSeconds(30f);
-        //enemyGenerator.GenerateEnemies(spawnDelay, spawnTotal, passCountOverride); //sends a random enemy to spawn
-        //yield return new WaitForSeconds(90f); - needs to be wait till boss is dead
+
+        //wait for bossActivated flag flip
         yield return new WaitWhile(() =>  bossGenerator.bossActivated);
         GameManager.Instance.BossMeter.SetActive(false);
         bossActive = false;

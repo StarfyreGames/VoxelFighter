@@ -7,6 +7,8 @@ public class LevelEndMarker : MonoBehaviour
     public TerrainScroller actscroller;
     //public BossFightScript boss;
 
+    bool isTriggered = false;
+
     private void Start()
     {
         Debug.Log($"Scroller = {Scroller}");
@@ -16,11 +18,15 @@ public class LevelEndMarker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isTriggered)
+            return;
+
         if (other.CompareTag("Player"))
         {
             actscroller.scrolling = false;
+            isTriggered = true;
             PlayerManager.Instance.player.engagedBoss = true;
-            Debug.Log($"<color=red>ENTER THE BOSS!</color>");
+            Debug.Log($"<color=red>ENTER THE BOSS!</color>");            
             StartCoroutine(GameOverer());
         }
     }
@@ -31,6 +37,7 @@ public class LevelEndMarker : MonoBehaviour
     IEnumerator GameOverer()
     {        
         yield return new WaitForSeconds(300f);
+        isTriggered = false;
         StartCoroutine(PlayerManager.Instance.EndGame());
     }
 

@@ -5,15 +5,15 @@ namespace Guns.Clip
 {
     public abstract class AClip
     {
-        public abstract void Fire(GunSpec gunSpec, BulletSpec bulletSpec);
+        public abstract void Fire(GunSpec gunSpec, BulletEntitySpec bulletEntitySpec);
 
-        public virtual void Update(GunSpec gunSpec, BulletSpec bulletSpec, float deltaTime)
+        public virtual void Update(GunSpec gunSpec, BulletEntitySpec bulletEntitySpec, float deltaTime)
         {
             // Left blank in the default
         }
 
         [CanBeNull]
-        protected GameObject BuildBullet(GunSpec gunSpec, BulletSpec bulletSpec)
+        protected GameObject BuildBullet(GunSpec gunSpec, BulletEntitySpec bulletEntitySpec)
         {
             
             var position = gunSpec.Position;
@@ -26,7 +26,7 @@ namespace Guns.Clip
                 return null;
             }
 
-            projectile.Initialise(bulletSpec, bullet);
+            projectile.Initialise(bulletEntitySpec, bullet);
 
             return bullet;
         }

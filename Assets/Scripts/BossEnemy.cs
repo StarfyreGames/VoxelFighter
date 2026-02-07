@@ -157,13 +157,13 @@ public class BossEnemy : MonoBehaviour
 
     private void HandleProjectileCollision(Projectile projectile)
     {
-        Debug.Log($"<color=green> Registering hit from </color> {projectile.BulletSpec.origin} fire.");
+        Debug.Log($"<color=green> Registering hit from </color> {projectile.BulletEntitySpec.origin} fire.");
 
         // Enemies can't hit themselves
-        if (projectile.BulletSpec.origin == BulletSpec.Origin.Enemy)
+        if (projectile.BulletEntitySpec.origin == BulletEntitySpec.Origin.Enemy)
             return;
 
-        TakeDamage(projectile.BulletSpec.damage);
+        TakeDamage(projectile.BulletEntitySpec.damage);
         projectile.DestroyMe();
     }
 

@@ -12,13 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ec491975fb483f926ffe734e7378a7, type: 3}
   m_Name: GunAssetCatalogue
   m_EditorClassIdentifier: Assembly-CSharp::Gun.Model.GunAssetCatalogue
-  bullets:
-  - {fileID: 11400000, guid: 78a76ec0beaf940a0bda367483c00a1e, type: 2}
-  - {fileID: 11400000, guid: 642a1f3acfaff4f988dbc3827655a540, type: 2}
-  - {fileID: 11400000, guid: 7ebadcc6fb2ea4b9791334939c886d10, type: 2}
-  - {fileID: 11400000, guid: f73823bfef136467fbc7493dcf48bdf3, type: 2}
-  - {fileID: 11400000, guid: 96ec04ee790e14feb99ccf13ed097c44, type: 2}
-  fireModes:
-  - {fileID: 11400000, guid: 06427a12a45034a07b7720c20c5ec427, type: 2}
-  guns:
+  weaponPrefabs:
   - {fileID: 6783490145623964156, guid: 19f12978debac48d2966de6cb2ea8f09, type: 3}
+  bulletPrefabs:
+  - {fileID: 3992474081883656927, guid: 579871c5d61e9417daecc004348cbe63, type: 3}

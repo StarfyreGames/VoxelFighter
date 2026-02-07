@@ -1,5 +1,7 @@
 using Gun.Persistence;
 using Unity.VisualScripting.Dependencies.Sqlite;
+using UnityEngine.Android;
+using UnityEngine.Rendering;
 
 namespace Persistence.Seeders
 {
@@ -7,8 +9,12 @@ namespace Persistence.Seeders
     {
         public void Seed(SQLiteConnection connection)
         {
-            connection.CreateTable<GunSlotSave>();
-            connection.CreateTable<GunLayoutSave>();
+            // Gun
+            connection.CreateTable<BulletEntity>();
+            connection.CreateTable<FireModeEntity>();
+            connection.CreateTable<GunSlotEntity>();
+            connection.CreateTable<GunRackEntity>();
+            connection.CreateTable<ShipEntity>();
         }
     }
 }

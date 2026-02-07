@@ -5,20 +5,20 @@ using utils;
 
 public class Projectile : MonoBehaviour
 {
-    public BulletSpec BulletSpec { get; private set; }
+    public BulletEntitySpec BulletEntitySpec { get; private set; }
     private GameObject _bullet;
     
-    public void Initialise(BulletSpec bulletCharacteristics, GameObject bullet)
+    public void Initialise(BulletEntitySpec bulletEntityCharacteristics, GameObject bullet)
     {
-        BulletSpec = bulletCharacteristics;
+        BulletEntitySpec = bulletEntityCharacteristics;
         _bullet = bullet;
 
-        _bullet.transform.localScale = BulletSpec.scale;
+        _bullet.transform.localScale = BulletEntitySpec.scale;
     }
 
     private void Update()
     {
-        gameObject.transform.position += BulletSpec.velocity * Time.deltaTime;
+        gameObject.transform.position += BulletEntitySpec.velocity * Time.deltaTime;
         if (CleanUpFence.ShouldDestroy(gameObject)) Destroy(gameObject);
     }
 

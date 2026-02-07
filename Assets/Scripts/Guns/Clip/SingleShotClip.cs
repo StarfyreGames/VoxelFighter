@@ -2,9 +2,9 @@ namespace Guns.Clip
 {
     public class SingleShotClip : AClip
     {
-        public override void Fire(GunSpec gunSpec, BulletSpec bulletSpec)
+        public override void Fire(GunSpec gunSpec, BulletEntitySpec bulletEntitySpec)
         {
-            BuildBullet(gunSpec, bulletSpec);
+            BuildBullet(gunSpec, bulletEntitySpec);
         }
     }
 }

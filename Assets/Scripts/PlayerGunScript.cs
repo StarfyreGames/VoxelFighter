@@ -13,7 +13,7 @@ public class PlayerGunScript : MonoBehaviour, IModifiable
     private void Awake()
     {
         var catalogue = GetComponent<BulletCatalogue>();
-        _armament = new Armament(gunSlots, Vector3.forward, BulletSpec.Origin.Player, catalogue, gameObject);
+        _armament = new Armament(gunSlots, Vector3.forward, BulletEntitySpec.Origin.Player, catalogue, gameObject);
 
         // Add the 2 starting guns
         _armament.AddGun();

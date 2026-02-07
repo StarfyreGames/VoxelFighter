@@ -13,7 +13,7 @@ namespace Guns
         private readonly List<Vector3> _offsets;
         private readonly List<Gun> _guns = new();
 
-        public Armament(List<Vector3> offsets, Vector3 rotation, BulletSpec.Origin origin, BulletCatalogue catalogue,
+        public Armament(List<Vector3> offsets, Vector3 rotation, BulletEntitySpec.Origin origin, BulletCatalogue catalogue,
             GameObject host)
         {
             _host = host;

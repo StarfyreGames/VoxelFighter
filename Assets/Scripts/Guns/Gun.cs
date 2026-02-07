@@ -22,13 +22,13 @@ namespace Guns
             var timeElapsed = DateTime.UtcNow - _lastFire;
             if (timeElapsed < duration) return;
 
-            _specs.Clip.Fire(_specs.GunSpec, _specs.BulletSpec);
+            _specs.Clip.Fire(_specs.GunSpec, _specs.BulletEntitySpec);
             _lastFire = DateTime.UtcNow;
         }
 
         public void Update(float deltaTime)
         {
-            _specs.Clip.Update(_specs.GunSpec, _specs.BulletSpec, deltaTime);
+            _specs.Clip.Update(_specs.GunSpec, _specs.BulletEntitySpec, deltaTime);
         }
 
         public void ApplyModification(AModification modification)

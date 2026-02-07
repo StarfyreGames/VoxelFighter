@@ -10,9 +10,9 @@ namespace Guns.Modifications
             return spec;
         }
 
-        public virtual BulletSpec Modify(BulletSpec spec)
+        public virtual BulletEntitySpec Modify(BulletEntitySpec entitySpec)
         {
-            return spec;
+            return entitySpec;
         }
 
         public virtual AClip Modify(AClip clip)

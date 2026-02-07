@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Guns
 {
-    public record Specs(GunSpec GunSpec, BulletSpec BulletSpec, AClip Clip) : IModifiable
+    public record Specs(GunSpec GunSpec, BulletEntitySpec BulletEntitySpec, AClip Clip) : IModifiable
     {
         private const float BaseGunFireRate = 3;
         
@@ -15,10 +15,10 @@ namespace Guns
         private static readonly AClip InitialClip = new SingleShotClip();
         
         public GunSpec GunSpec { get; private set; } = GunSpec;
-        public BulletSpec BulletSpec { get; private set; } = BulletSpec;
+        public BulletEntitySpec BulletEntitySpec { get; private set; } = BulletEntitySpec;
         public AClip Clip { get; private set; } = Clip;
 
-        public Specs(GameObject host, Vector3 rotation, BulletSpec.Origin origin, BulletCatalogue catalogue) : this(
+        public Specs(GameObject host, Vector3 rotation, BulletEntitySpec.Origin origin, BulletCatalogue catalogue) : this(
             new GunSpec
             {
                 fireRate = BaseGunFireRate,
@@ -26,12 +26,12 @@ namespace Guns
                 offset = Vector3.zero,
                 host = host,
             },
-            new BulletSpec
+            new BulletEntitySpec
             {
                 damage = BaseBulletDamage,
                 scale = BaseBulletScale,
                 velocity = rotation * BaseBulletPower,
-                damageType = BulletSpec.DamageType.Impact,
+                damageType = BulletEntitySpec.DamageType.Impact,
                 origin = origin
             },
             InitialClip
@@ -42,7 +42,7 @@ namespace Guns
         public void ApplyModification(AModification modification)
         {
             GunSpec = modification.Modify(GunSpec);
-            BulletSpec = modification.Modify(BulletSpec);
+            BulletEntitySpec = modification.Modify(BulletEntitySpec);
             Clip = modification.Modify(Clip);
         }
 
@@ -62,7 +62,7 @@ namespace Guns
         public Vector3 Position => host.transform.position + offset;
     }
 
-    public record BulletSpec
+    public record BulletEntitySpec
     {
         public Vector3 scale;
         public Vector3 velocity;

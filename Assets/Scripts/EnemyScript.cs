@@ -2,22 +2,23 @@ using Guns;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Drawing;
+using Gun.Api;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public class EnemyScript : MonoBehaviour, IShootable
 {
-    [Header("Waypoints")]
-    [SerializeField] public WaypointTrack waypointTrack;
+    [Header("Waypoints")] [SerializeField] public WaypointTrack waypointTrack;
     [SerializeField] public List<Transform> waypointPath;
 
-    [Header("Enemy Variables")] 
-    [SerializeField] public float speed = 50f; //alterable in inspector
+    [Header("Enemy Variables")] [SerializeField]
+    public float speed = 50f; //alterable in inspector
+
     [SerializeField] public int maxHitpoints = 10; //alterable in inspector
     [SerializeField] public int maxPassCount = 0; //might be moved or changed by generator logic.
     [SerializeField] public int damageForHittingPlayer = 10;
 
-    [Header("Enemy Values")]
-    [SerializeField] public int scoreValue = 100;
+    [Header("Enemy Values")] [SerializeField]
+    public int scoreValue = 100;
 
     int nextWaypoint = 0;
     int passCount = 0;
@@ -43,7 +44,7 @@ public class EnemyScript : MonoBehaviour
 
     private void Update()
     {
-        if (!iAmAlive)       
+        if (!iAmAlive)
         {
             DestroyMe();
             return;
@@ -155,13 +156,13 @@ public class EnemyScript : MonoBehaviour
 
     private void HandleProjectileCollision(Projectile projectile)
     {
-        Debug.Log($"<color=green> Registering hit from </color> {projectile.BulletSpec.origin} fire.");
+        Debug.Log($"<color=green> Registering hit from </color> {projectile.BulletEntitySpec.origin} fire.");
 
         // Enemies can't hit themselves
-        if (projectile.BulletSpec.origin == BulletSpec.Origin.Enemy)
+        if (projectile.BulletEntitySpec.origin == BulletEntitySpec.Origin.Enemy)
             return;
 
-        TakeDamage(projectile.BulletSpec.damage);
+        TakeDamage(projectile.BulletEntitySpec.damage);
         projectile.DestroyMe();
     }
 

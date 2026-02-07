@@ -1,10 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using Cysharp.Threading.Tasks.Triggers;
 using Gun.Model;
 using Gun.Persistence;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Gun.Scripts
@@ -33,43 +29,35 @@ namespace Gun.Scripts
 
         private void Start()
         {
-            var layout = GunLayoutSave.LoadForPlayer();
+            // TODO nic: This should not be specific to the player
+            var layout = IShipRepository.GetPlayerShip().GunRack.Resolve();
 
             // TODO nic: Better error handling?
-            foreach (var gunSlotSave in layout.Guns())
+            foreach (var save in layout.Guns.Resolve())
             {
                 // Can't create a gun slot that doesn't exist.
-                if (gunSlotSave.Slot < 0 || gunSlotSave.Slot > _rack.Length) return;
+                if (save.Slot < 0 || save.Slot > _rack.Length) return;
 
-                LoadGunIntoScene(
-                    gunSlotSave.Slot,
-                    catalogue.GetGunByName(gunSlotSave.GunAssetName),
-                    catalogue.GetFireModeByName(gunSlotSave.FireModeAssetName),
-                    catalogue.GetBulletByName(gunSlotSave.BulletAssetName)
-                );
+                // Slots are numbered 1 - n
+                var gunSlotIndex = save.Slot - 1;
+
+                // Clean up any guns that are already loaded into the scene
+                if (_rack[gunSlotIndex] != null)
+                    Destroy(_rack[gunSlotIndex]);
+
+                // Create the new gun in the schene
+                var slotTransform = gunSlots[gunSlotIndex];
+                var gunPrefab = catalogue.GetWeaponPrefab(save.WeaponPrefab);
+                var gun = Instantiate(gunPrefab, slotTransform);
+
+                // Initialise the weapon's information into runtime
+                var weapon = gun.GetComponent<Weapon>();
+                weapon.Initialise(save.FireMode.Resolve(), save.Bullet.Resolve(), catalogue);
+
+                // Update the rack and return the new game object
+                _rack[gunSlotIndex] = gun;
+                _weapons[gunSlotIndex] = weapon;
             }
-        }
-
-        private void LoadGunIntoScene(int slot, GameObject gunPrefab, FireMode fireMode, Bullet bullet)
-        {
-            // Slots are numbered 1 - n
-            var gunSlotIndex = slot - 1;
-
-            // Clean up any guns that are already loaded into the scene
-            if (_rack[gunSlotIndex] != null)
-                Destroy(_rack[gunSlotIndex]);
-
-            // Create the new gun in the schene
-            var slotTransform = gunSlots[gunSlotIndex];
-            var gun = Instantiate(gunPrefab, slotTransform);
-
-            // Initialise the weapon's information into runtime
-            var weapon = gun.GetComponent<Weapon>();
-            weapon.Init(fireMode, bullet);
-
-            // Update the rack and return the new game object
-            _rack[gunSlotIndex] = gun;
-            _weapons[gunSlotIndex] = weapon;
         }
     }
 }

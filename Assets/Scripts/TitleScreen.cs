@@ -20,10 +20,9 @@ public class TitleScreen : MonoBehaviour
 
     private bool canPressKey = false;
 
-
-
     private void Start()
     {
+        GameManager.Instance.gameState = GameState.TitleScreen;
         pressKey.gameObject.SetActive(false);
         frame.sprite = null;
         StartCoroutine(CycleScreen());
@@ -33,6 +32,7 @@ public class TitleScreen : MonoBehaviour
     {
         if (canPressKey && Input.anyKeyDown) 
         {
+            GameManager.Instance.gameState = GameState.ArcadeMode;
             SceneManager.LoadScene(firstSceneToLoad);
         }
     }

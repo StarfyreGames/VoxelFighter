@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000226606464764332}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.024356455, y: 0.36609796, z: 0.20312288, w: 0.9078107}
-  m_LocalPosition: {x: -7.453888, y: -1.345871, z: 3.3045044}
+  m_LocalRotation: {x: 0.049621794, y: 0.36752844, z: 0.035221644, w: 0.92801946}
+  m_LocalPosition: {x: -7.2260895, y: -0.7448654, z: 3.1420898}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2200299996636281240}
-  m_LocalEulerAnglesHint: {x: -11.125, y: 41.862, z: 20.958}
+  m_LocalEulerAnglesHint: {x: 3.796, y: 43.405, z: 5.858}
 --- !u!65 &2015808680546412507
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51,8 +51,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 16.000011, y: 2.0000021, z: 8.000003}
-  m_Center: {x: 1.4999839, y: -0.5000026, z: 0.49999925}
+  m_Size: {x: 16.000011, y: 4.0000086, z: 8.000003}
+  m_Center: {x: 1.4999839, y: -0.5000048, z: 0.49999943}
 --- !u!1 &5568359470268837082
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +223,7 @@ MonoBehaviour:
   damageForHittingPlayer: 10
   scoreValue: 100
   hitpoints: 15
+  isDestroyed: 0
   iAmAlive: 0
 --- !u!114 &-4751576439244791471
 MonoBehaviour:
@@ -289,13 +290,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9201734644191790117}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.015681205, y: -0.320877, z: -0.15535259, w: 0.9341614}
-  m_LocalPosition: {x: 5.9538574, y: -1.6710587, z: 2.325119}
+  m_LocalRotation: {x: -0.057429835, y: -0.31608507, z: -0.032091223, w: 0.9464472}
+  m_LocalPosition: {x: 6.055481, y: -1.6911163, z: 2.4045258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2200299996636281240}
-  m_LocalEulerAnglesHint: {x: -7.412, y: -36.844, z: -16.412}
+  m_LocalEulerAnglesHint: {x: -7.412, y: -36.844, z: -1.412}
 --- !u!65 &4891237658825646228
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -315,5 +316,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 16.999994, y: 1.9999995, z: 8.999946}
-  m_Center: {x: 0.000007666563, y: 0.49998352, z: 1.0000283}
+  m_Size: {x: 16.999994, y: 4, z: 8.999946}
+  m_Center: {x: 0.000007753272, y: 0.49997643, z: 1.0000283}

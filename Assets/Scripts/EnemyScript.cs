@@ -1,8 +1,6 @@
-using Guns;
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Drawing;
 using Gun.Api;
+using Player.Scripts;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour, IShootable
@@ -146,24 +144,26 @@ public class EnemyScript : MonoBehaviour, IShootable
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.CompareTag("shot"))
-            HandleProjectileCollision(coll.gameObject.GetComponent<Projectile>());
+            // TODO nic: FIX THIS
+            // HandleProjectileCollision(coll.gameObject.GetComponent<Projectile>());
+            return;
         else if (coll.gameObject.CompareTag("Player"))
             HandlePlayerCollision();
         else
             Debug.Log($"registering trigger collision with {coll}");
     }
 
-    private void HandleProjectileCollision(Projectile projectile)
-    {
-        Debug.Log($"<color=green> Registering hit from </color> {projectile.BulletEntitySpec.origin} fire.");
-
-        // Enemies can't hit themselves
-        if (projectile.BulletEntitySpec.origin == BulletEntitySpec.Origin.Enemy)
-            return;
-
-        TakeDamage(projectile.BulletEntitySpec.damage);
-        projectile.DestroyMe();
-    }
+    // private void HandleProjectileCollision(Projectile projectile)
+    // {
+    //     Debug.Log($"<color=green> Registering hit from </color> {projectile.BulletEntitySpec.origin} fire.");
+    //
+    //     // Enemies can't hit themselves
+    //     if (projectile.BulletEntitySpec.origin == BulletEntitySpec.Origin.Enemy)
+    //         return;
+    //
+    //     TakeDamage(projectile.BulletEntitySpec.damage);
+    //     projectile.DestroyMe();
+    // }
 
     private void HandlePlayerCollision()
     {
@@ -203,6 +203,6 @@ public class EnemyScript : MonoBehaviour, IShootable
         iAmAlive = false;
 
         Debug.Log($"Enemy Destroyed.");
-        GameObject.Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

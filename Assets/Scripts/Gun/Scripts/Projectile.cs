@@ -12,9 +12,12 @@ namespace Gun.Scripts
         private BulletEntity _bulletEntity;
         private int _impactsRemaining;
 
-        private float TrueDamage =>
-            (float)_impactsRemaining / _bulletEntity.MaxPassthroughImpacts *
-            _bulletEntity.PassthroughDamageReductionFactor * _bulletEntity.Damage;
+        // TODO nic: Ew.. How can we keep this int maths?
+        private int TrueDamage =>
+            (int)(
+                (float)_impactsRemaining / _bulletEntity.MaxPassthroughImpacts *
+                _bulletEntity.PassthroughDamageReductionFactor * _bulletEntity.Damage
+            );
 
         private Vector3 CurrentVelocity =>
             // TODO nic: I have no idea if this is correct - going to run with is and check later
@@ -44,7 +47,7 @@ namespace Gun.Scripts
             // is accounted for - we measure from the center of the bullet
             var hitDistance = movement;
             var ray = new Ray(transform.position, transform.forward);
-            
+
             // Get all the things that we are going to hit in this frame
             // Allocating 10 slots - because why would it be more than that... Right?
             var hitList = new RaycastHit[10];
@@ -57,7 +60,7 @@ namespace Gun.Scripts
             for (var i = 0; i < hitCnt; i++)
             {
                 // Send the damage to what we just hit
-                 var damageHandlers = hits[i].collider.gameObject.GetComponents<IShootable>();
+                var damageHandlers = hits[i].collider.gameObject.GetComponents<IShootable>();
 
                 // If the thing we hit cannot be damaged - skip it
                 if (damageHandlers.Length == 0) continue;

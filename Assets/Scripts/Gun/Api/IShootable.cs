@@ -2,6 +2,6 @@ namespace Gun.Api
 {
     public interface IShootable
     {
-        public void TakeDamage(float damage);
+        public void TakeDamage(int damage);
     }
 }

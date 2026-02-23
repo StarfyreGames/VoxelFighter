@@ -5093,6 +5093,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gun.Scripts.Gunner
   autoFire: 0
   isPlayerGunner: 1
+--- !u!114 &1326768384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326768369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5486824bfae44dda17874c92f0bce2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ship.Scripts.ShieldUpgradeReceiver
+--- !u!114 &1326768385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326768369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fdf8bb95b345c3859281936df292c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ship.Scripts.HeathPackReciever
+--- !u!114 &1326768386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326768369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce4f96e11dd4a5fb99d37095e64850e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ship.Scripts.ShipShootableScript
+--- !u!114 &1326768387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326768369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc84167d6114228a7be823155bdc981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.Scripts.PlayerShipResolver
 --- !u!1 &1328596524
 GameObject:
   m_ObjectHideFlags: 0
@@ -9001,10 +9049,22 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1326768387}
+    - targetCorrespondingSourceObject: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1326768382}
     - targetCorrespondingSourceObject: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1326768383}
+    - targetCorrespondingSourceObject: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1326768386}
+    - targetCorrespondingSourceObject: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1326768385}
+    - targetCorrespondingSourceObject: {fileID: 2508449768826772164, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1326768384}
   m_SourcePrefab: {fileID: 100100000, guid: 94c3c264d814c6948b04271208aa83ea, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

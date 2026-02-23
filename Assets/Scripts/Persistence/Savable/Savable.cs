@@ -77,6 +77,12 @@ namespace Persistence.Savable
             return relationship;
         }
 
+        protected HasOne<TChild> HasOne<TChild>(string key, Func<TChild> getChild)
+            where TChild : BaseSavable, ISavableRepository<TChild>, new()
+        {
+            return (HasOne<TChild>)GetParentRelationship(key, () => new HasOne<TChild>(getChild, _ => { }));
+        }
+        
         protected HasOne<TChild> HasOne<TChild>(string key, Func<TChild> getChild, Action<TChild> updateBackRef)
             where TChild : BaseSavable, ISavableRepository<TChild>, new()
         {

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using Gun.Api;
 using Gun.Model;
 using Gun.Persistence;
+using Ship.Api;
 using UnityEngine;
 
 namespace Gun.Scripts
@@ -29,8 +31,10 @@ namespace Gun.Scripts
 
         private void Start()
         {
-            // TODO nic: This should not be specific to the player
-            var layout = IShipRepository.GetPlayerShip().GunRack.Resolve();
+            var resolver = GetComponent<IShipResolver>();
+            if (resolver == null) return;
+            
+            var layout = resolver.GetShip().GunRack.Resolve();
 
             // TODO nic: Better error handling?
             foreach (var save in layout.Guns.Resolve())

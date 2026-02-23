@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Gun.Persistence;
+using Ship.Persistence;
 using Unity.VisualScripting.Dependencies.Sqlite;
 
 namespace Persistence.Seeders
@@ -12,7 +12,7 @@ namespace Persistence.Seeders
             gunRack.AddGun(CreateDefaultGun(1));
             gunRack.AddGun(CreateDefaultGun(5));
 
-            var ship = new ShipEntity { ID = IShipRepository.PlayerId, Name = "Player" };
+            var ship = new ShipEntity { ID = IShipRepository.PlayerShipId, Name = "Player" };
             ship.GunRack.Set(gunRack);
 
             ship.Save();

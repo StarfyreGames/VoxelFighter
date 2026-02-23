@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Persistence;
 using Persistence.Savable;
+using Ship.Persistence;
 using Unity.VisualScripting.Dependencies.Sqlite;
 
 namespace Gun.Persistence

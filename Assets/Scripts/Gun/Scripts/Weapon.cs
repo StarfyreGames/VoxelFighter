@@ -1,6 +1,6 @@
 using System.Linq;
 using Gun.Model;
-using Gun.Persistence;
+using PowerUp.Api;
 using UnityEngine;
 
 namespace Gun.Scripts
@@ -9,18 +9,15 @@ namespace Gun.Scripts
     {
         [SerializeField] public Transform muzzle;
 
-        private GunAssetCatalogue _catalogue;
-        private FireModeEntity _fireModeEntity;
-        private BulletEntity _bulletEntity;
+
+        private WeaponBlueprint _blueprint;
         private bool _initialized;
 
         private float _lastFired;
 
-        public void Initialise(FireModeEntity filterModeEntity, BulletEntity bulletEntity, GunAssetCatalogue catalogue)
+        public void Initialise(WeaponBlueprint blueprint)
         {
-            _catalogue = catalogue;
-            _fireModeEntity = filterModeEntity;
-            _bulletEntity = bulletEntity;
+            _blueprint = blueprint;
             _initialized = true;
         }
 
@@ -29,14 +26,14 @@ namespace Gun.Scripts
             if (!_initialized) return;
 
             // Don't shoot too quickly
-            if (Time.fixedTime - _lastFired < _fireModeEntity.FireRate) return;
+            if (Time.fixedTime - _lastFired < _blueprint.fireRate) return;
             _lastFired = Time.fixedTime;
 
             // Get the bullets into the scene and attach the relevant information
-            var firedBullets = BuildBulletTransforms(_fireModeEntity.NumberOfBullets)
+            var firedBullets = BuildBulletTransforms(_blueprint.numberOfBullets)
                 .Select(bulletTransform =>
                     Instantiate(
-                        _catalogue.GetBulletPrefab(_bulletEntity),
+                        _blueprint.bulletPrefab,
                         bulletTransform.position,
                         bulletTransform.rotation
                     )
@@ -44,8 +41,8 @@ namespace Gun.Scripts
 
             foreach (var bulletGo in firedBullets)
             {
-                bulletGo.transform.localScale = Vector3.one * _bulletEntity.Scale;
-                bulletGo.GetComponent<Projectile>().Initialise(_bulletEntity);
+                bulletGo.transform.localScale = Vector3.one * _blueprint.bulletScale;
+                bulletGo.GetComponent<Projectile>().Initialise(_blueprint);
             }
         }
 
@@ -60,7 +57,7 @@ namespace Gun.Scripts
             for (var i = 0; i < count; i++)
             {
                 var t = (float)i / (count - 1);
-                var degrees = Mathf.Lerp(-_fireModeEntity.SpreadAngle / 2f, _fireModeEntity.SpreadAngle / 2f, t);
+                var degrees = Mathf.Lerp(-_blueprint.spreadAngle / 2f, _blueprint.spreadAngle / 2f, t);
                 var spreadRotation = Quaternion.AngleAxis(degrees, muzzle.forward);
 
                 bulletTransforms[i] = Instantiate(muzzle, muzzle.position, spreadRotation);

@@ -8,23 +8,15 @@ namespace Persistence.Seeders
     {
         public void Seed(SQLiteConnection connection)
         {
-            var gunRack = new GunRackEntity();
-            gunRack.AddGun(CreateDefaultGun(1));
-            gunRack.AddGun(CreateDefaultGun(5));
+            var gunRack = new GunRackEntity
+            {
+                WeaponBlueprintName = "Pulse Cannon (8)"
+            };
 
             var ship = new ShipEntity { ID = IShipRepository.PlayerShipId, Name = "Player" };
             ship.GunRack.Set(gunRack);
 
             ship.Save();
-        }
-
-        private static GunSlotEntity CreateDefaultGun(int slot)
-        {
-            var gunSlot = new GunSlotEntity { Slot = slot, WeaponPrefab = "PulseCannon" };
-            gunSlot.FireMode.Set(IFireModeRepository.PulseCannonDefault());
-            gunSlot.Bullet.Set(IBulletEntityRepository.CreatePulseCannon8());
-
-            return gunSlot;
         }
     }
 }

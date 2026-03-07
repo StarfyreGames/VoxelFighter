@@ -12,21 +12,12 @@ namespace Gun.Persistence
         // === Relationships
 
         [Indexed(Unique = false)] public int ShipId { get; set; }
+        
+        public string WeaponBlueprintName { get; set; }
 
         [Ignore]
         public BelongsTo<ShipEntity> AttachedTo =>
             BelongsTo<ShipEntity>("AttachedTo", () => ShipId, id => ShipId = id);
-
-        [Ignore]
-        public HasMany<GunSlotEntity> Guns => HasMany(
-            "Guns",
-            () => IGunSlotRepository.GetForGunRack(this),
-            slot => slot.AttachedTo.Set(this)
-        );
-
-        // === Utilities
-
-        public void AddGun(GunSlotEntity gun) => Guns.Add(gun);
     }
 
     public interface IGunRackRepository : ISavableRepository<GunRackEntity>

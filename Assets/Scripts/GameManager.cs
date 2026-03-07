@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public TextMeshProUGUI PopUpText;
     [SerializeField] public Image FadeScreen;
 
+    public GameState gameState;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -34,7 +36,19 @@ public class GameManager : MonoBehaviour
 
     public void KillGame()
     {
+        gameState = GameState.TitleScreen;
         Destroy(this);
     }
 
+
+
 }
+
+public enum GameState
+{
+    ArcadeMode,
+    BuildMode,
+    StrategyMode,
+    MapMode,
+    TitleScreen
+};

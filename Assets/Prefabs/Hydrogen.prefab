@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 6567511300252250337}
   m_Layer: 0
   m_Name: RightWing
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 7806469314023240811}
   m_Layer: 0
   m_Name: Fuselage
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 3087861483951437902}
   m_Layer: 0
   m_Name: LeftWing
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -699,7 +699,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2e70f7bc574ca75479e08016d555be8a, type: 2}
     - target: {fileID: 919132149155446097, guid: 995ba5d84004d504baed51eea59df83b, type: 3}
       propertyPath: m_Name
-      value: Boss1A
+      value: Hydrogen
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 995ba5d84004d504baed51eea59df83b, type: 3}
       propertyPath: m_TagString

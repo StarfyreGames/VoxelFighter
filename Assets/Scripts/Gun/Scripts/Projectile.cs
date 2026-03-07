@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Gun.Api;
+using Gun.Model;
 using Gun.Persistence;
 using UnityEngine;
 using utils;
@@ -9,25 +10,12 @@ namespace Gun.Scripts
 {
     public class Projectile : MonoBehaviour
     {
-        private BulletEntity _bulletEntity;
+        private WeaponBlueprint _blueprint;
         private int _impactsRemaining;
 
-        // TODO nic: Ew.. How can we keep this int maths?
-        private int TrueDamage =>
-            (int)(
-                (float)_impactsRemaining / _bulletEntity.MaxPassthroughImpacts *
-                _bulletEntity.PassthroughDamageReductionFactor * _bulletEntity.Damage
-            );
-
-        private Vector3 CurrentVelocity =>
-            // TODO nic: I have no idea if this is correct - going to run with is and check later
-            (float)_impactsRemaining / _bulletEntity.MaxPassthroughImpacts *
-            _bulletEntity.PassthroughFrictionFactor * _bulletEntity.Velocity * transform.forward;
-
-        public void Initialise(BulletEntity bulletEntity)
+        public void Initialise(WeaponBlueprint blueprint)
         {
-            _bulletEntity = bulletEntity;
-            _impactsRemaining = _bulletEntity.MaxPassthroughImpacts;
+            _blueprint = blueprint;
         }
 
         private void Update()
@@ -40,7 +28,7 @@ namespace Gun.Scripts
             }
 
             // Work out how far we would move in this frame.
-            var movement = _bulletEntity.Velocity * Time.deltaTime;
+            var movement = _blueprint.bulletVelocity * Time.deltaTime;
             transform.Translate(movement * transform.forward);
 
             // Adding half the bullets length to make sure the whole bullet
@@ -66,7 +54,7 @@ namespace Gun.Scripts
                 if (damageHandlers.Length == 0) continue;
 
                 // Otherwise give 'em hell
-                foreach (var target in damageHandlers) target.TakeDamage(TrueDamage);
+                foreach (var target in damageHandlers) target.TakeDamage(_blueprint.bulletDamage);
 
                 // Record the impact and keep going if the bullet is still moving
                 --_impactsRemaining;

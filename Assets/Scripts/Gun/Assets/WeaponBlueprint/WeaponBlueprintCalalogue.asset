@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32ec491975fb483f926ffe734e7378a7, type: 3}
-  m_Name: GunAssetCatalogue
+  m_Name: WeaponBlueprintCalalogue
   m_EditorClassIdentifier: Assembly-CSharp::Gun.Model.GunAssetCatalogue
-  weaponPrefabs:
-  - {fileID: 6783490145623964156, guid: 19f12978debac48d2966de6cb2ea8f09, type: 3}
-  bulletPrefabs:
-  - {fileID: 3992474081883656927, guid: 579871c5d61e9417daecc004348cbe63, type: 3}
+  pulseCannonBase: {fileID: 11400000, guid: cd295f46cabf343608a8bbc13e60e8ea, type: 2}
+  spreadShotBase: {fileID: 0}
+  lightningBase: {fileID: 0}
+  laserBase: {fileID: 0}

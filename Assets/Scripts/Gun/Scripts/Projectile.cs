@@ -12,11 +12,12 @@ namespace Gun.Scripts
     {
         private WeaponBlueprint _blueprint;
         private int _impactsRemaining;
-
+      
         public void Initialise(WeaponBlueprint blueprint)
         {
             _blueprint = blueprint;
         }
+              
 
         private void Update()
         {
@@ -48,7 +49,7 @@ namespace Gun.Scripts
             for (var i = 0; i < hitCnt; i++)
             {
                 // Send the damage to what we just hit
-                var damageHandlers = hits[i].collider.gameObject.GetComponents<IShootable>();
+                var damageHandlers = hits[i].collider.gameObject.GetComponentsInParent<IShootable>();
 
                 // If the thing we hit cannot be damaged - skip it
                 if (damageHandlers.Length == 0) continue;
@@ -69,9 +70,7 @@ namespace Gun.Scripts
 
         private void DestroyProjectile()
         {
-            // TODO nic: Do I need to clean up the bullet?
-            Destroy(gameObject, 1f);
-            Destroy(this);
+            Destroy(gameObject);            
         }
     }
 }

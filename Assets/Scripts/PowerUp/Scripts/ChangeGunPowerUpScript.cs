@@ -11,7 +11,7 @@ namespace PowerUp.Scripts
 
         private void OnTriggerEnter(Collider other)
         {
-            var gunUpgradeReceiver = other.gameObject.GetComponent<IGunUpgradeReceiver>();
+            var gunUpgradeReceiver = other.gameObject.GetComponentInParent<IGunUpgradeReceiver>();
             if (gunUpgradeReceiver == null) return;
             
             gunUpgradeReceiver.ChangeGun(blueprint);

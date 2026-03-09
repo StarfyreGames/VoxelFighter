@@ -69,7 +69,7 @@ namespace Player.Scripts
             }
             else
             {
-                Debug.Log($"{gameObject.name} taking <color=green> {dmg} </color> damage to <color=cyan>{player.shieldPoints} </color>total HP");
+                Debug.Log($"{player.name} taking <color=green> {dmg} </color> damage to <color=cyan>{player.shieldPoints} </color>total HP");
                 player.shieldPoints -= dmg;
 
                 if (player.shieldPoints <= 0)
@@ -81,7 +81,7 @@ namespace Player.Scripts
 
                 //Update UI SLIder
                 shieldSlider.value = player.shieldPoints;
-                Debug.Log($"{gameObject.name} now has <color=orange>{player.shieldPoints}</color> out of <color=cyan>{player.maxShieldPoints}</color> total HP.");
+                Debug.Log($"{player.name} now has <color=orange>{player.shieldPoints}</color> out of <color=cyan>{player.maxShieldPoints}</color> total HP.");
                 StartCoroutine(StopMultiCrash());
 
             }

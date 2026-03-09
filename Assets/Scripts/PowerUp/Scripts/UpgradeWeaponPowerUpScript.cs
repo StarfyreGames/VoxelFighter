@@ -8,8 +8,7 @@ namespace PowerUp.Scripts
     {
         private void OnTriggerEnter(Collider other)
         {
-            var gunUpgradeReceiver = other.gameObject.GetComponent<IGunUpgradeReceiver>() ??
-                                     other.gameObject.GetComponentInParent<IGunUpgradeReceiver>();
+            var gunUpgradeReceiver = other.gameObject.GetComponentInParent<IGunUpgradeReceiver>();
 
             if (gunUpgradeReceiver == null) return;
 

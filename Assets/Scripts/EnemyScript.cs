@@ -146,7 +146,7 @@ public class EnemyScript : MonoBehaviour, IShootable
     {
         if (coll.gameObject.CompareTag("Player"))
             HandlePlayerCollision();
-        else
+        else 
             Debug.Log($"registering trigger collision with {coll}");
     }
 

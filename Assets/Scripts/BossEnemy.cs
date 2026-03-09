@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossEnemy : MonoBehaviour
 {
+    public event System.Action OnBossDied;
+
     [Header("Waypoints")]
     [SerializeField] public WaypointTrack waypointTrack;
     [SerializeField] public List<Transform> waypointPath;
@@ -184,8 +186,13 @@ public class BossEnemy : MonoBehaviour
         if (hitpoints <= 0)
         {
             hitpoints = 0;
+            
+            Debug.Log("BOSS KILLED");
+
             PlayerManager.Instance.AddToScore(scoreValue);
-            Debug.Log("ENEMY KILLED");
+
+            OnBossDied?.Invoke();
+
             KillMe();
         }
         else

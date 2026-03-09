@@ -20,7 +20,8 @@ public class EnemyScript : MonoBehaviour, IShootable
 
     int nextWaypoint = 0;
     int passCount = 0;
-    public float hitpoints;
+    public int hitpoints;
+    public bool isDestroyed = false;
 
     Leveller leveller;
 
@@ -173,21 +174,23 @@ public class EnemyScript : MonoBehaviour, IShootable
 
     public void TakeDamage(int dmg)
     {
-        TakeDamage((float)dmg);
-    }
-
-    public void TakeDamage(float damage)
-    {
         //add in call to animator to show hit effect here
         Debug.Log(
-            $"{gameObject.name} taking <color=green> {damage} </color> damage to <color=cyan>{hitpoints} </color>total HP");
-        hitpoints -= damage;
+            $"{gameObject.name} taking <color=green> {dmg} </color> damage to <color=cyan>{hitpoints} </color>total HP");
+        hitpoints -= dmg;
 
         if (hitpoints <= 0)
         {
+            
             hitpoints = 0;
-            PlayerManager.Instance.AddToScore(scoreValue);
-            Debug.Log("ENEMY KILLED");
+
+            if (isDestroyed) { return; }
+            else
+            {
+                PlayerManager.Instance.AddToScore(scoreValue);
+                isDestroyed = true;
+                Debug.Log("ENEMY KILLED");
+            }
             DestroyMe();
         }
         else
@@ -198,8 +201,9 @@ public class EnemyScript : MonoBehaviour, IShootable
     }
 
     public void DestroyMe()
-    {
+    {              
         //add a call to explosion animation here with a wait
+     
         iAmAlive = false;
 
         Debug.Log($"Enemy Destroyed.");

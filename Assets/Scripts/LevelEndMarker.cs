@@ -1,4 +1,5 @@
 using System.Collections;
+using Player.Scripts;
 using UnityEngine;
 
 public class LevelEndMarker : MonoBehaviour

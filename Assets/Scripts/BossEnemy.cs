@@ -1,7 +1,5 @@
-using Guns;
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Drawing;
+using Player.Scripts;
 using UnityEngine;
 
 public class BossEnemy : MonoBehaviour
@@ -149,25 +147,28 @@ public class BossEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider coll)
     {
+        // TODO nic: FIX THIS
         if (coll.gameObject.CompareTag("shot"))
-            HandleProjectileCollision(coll.gameObject.GetComponent<Projectile>());
+            // HandleProjectileCollision(coll.gameObject.GetComponent<Projectile>());
+            return;
         else if (coll.gameObject.CompareTag("Player"))
             HandlePlayerCollision();
         else
             Debug.Log($"registering trigger collision with {coll}");
     }
 
-    private void HandleProjectileCollision(Projectile projectile)
-    {
-        Debug.Log($"<color=green> Registering hit from </color> {projectile.BulletSpec.origin} fire.");
-
-        // Enemies can't hit themselves
-        if (projectile.BulletSpec.origin == BulletSpec.Origin.Enemy)
-            return;
-
-        TakeDamage(projectile.BulletSpec.damage);
-        projectile.DestroyMe();
-    }
+    // TODO nic: FIX THIS
+    // private void HandleProjectileCollision(Projectile projectile)
+    // {
+    //     Debug.Log($"<color=green> Registering hit from </color> {projectile.BulletEntitySpec.origin} fire.");
+    //
+    //     // Enemies can't hit themselves
+    //     if (projectile.BulletEntitySpec.origin == BulletEntitySpec.Origin.Enemy)
+    //         return;
+    //
+    //     TakeDamage(projectile.BulletEntitySpec.damage);
+    //     projectile.DestroyMe();
+    // }
 
     private void HandlePlayerCollision()
     {
@@ -212,6 +213,6 @@ public class BossEnemy : MonoBehaviour
 
     public void DestroyME()
     {
-        GameObject.Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Gun.Api;
+using Player.Scripts;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour, IShootable

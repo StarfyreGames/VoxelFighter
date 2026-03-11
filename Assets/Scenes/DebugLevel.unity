@@ -283,7 +283,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160140363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1175,7 +1175,7 @@ GameObject:
   - component: {fileID: 448164353}
   - component: {fileID: 448164352}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: PrincipalUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2502,7 +2502,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 5496533021666575843}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030128637}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3108,7 +3108,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 1366806853151664644}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210361042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4642,6 +4642,10 @@ PrefabInstance:
       objectReference: {fileID: 330585545}
     - target: {fileID: 5051109553282215864, guid: 661ad281fc7d3fd46ba0c94e6aa38bbf, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9169581742318327974, guid: 661ad281fc7d3fd46ba0c94e6aa38bbf, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6486,6 +6490,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4726392548377210776, guid: 998a13f9058a5f84da3ca11a341b007d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5366457954172794081, guid: 998a13f9058a5f84da3ca11a341b007d, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -6718,6 +6726,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4251172371429601692, guid: 59809980ba0d51249bd692123f470ba4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312549642840523852, guid: 59809980ba0d51249bd692123f470ba4, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}

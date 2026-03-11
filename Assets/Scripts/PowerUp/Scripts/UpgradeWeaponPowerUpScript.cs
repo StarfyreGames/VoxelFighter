@@ -10,7 +10,11 @@ namespace PowerUp.Scripts
         {
             var gunUpgradeReceiver = other.gameObject.GetComponentInParent<IGunUpgradeReceiver>();
 
-            if (gunUpgradeReceiver == null) return;
+            if (gunUpgradeReceiver == null)
+            { 
+                Debug.Log("Can't Find reciever");
+                return; 
+            }
 
             gunUpgradeReceiver.UpgradeGun();
             Destroy(gameObject);

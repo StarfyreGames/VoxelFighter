@@ -47,11 +47,11 @@ public class BossFightScript : MonoBehaviour
     }
 
     private void Update()
-    {
-        bossGenerator.spawnedEnemyScript.OnBossDied += () => { bossActive = false; };
+    {        
 
         if (bossActive)
         {
+            bossGenerator.spawnedEnemyScript.OnBossDied += () => { bossActive = false; };
             BossMeter.value = (float)bossGenerator.newBoss.GetComponent<BossEnemy>().hitpoints / bossGenerator.newBoss.GetComponent<BossEnemy>().maxHitpoints;
         }
         else

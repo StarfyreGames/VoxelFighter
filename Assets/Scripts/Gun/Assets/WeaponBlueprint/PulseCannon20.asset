@@ -18,6 +18,7 @@ MonoBehaviour:
   bulletScale: 3
   numberOfBullets: 1
   fireRate: 0.5
+  gunLocations: 0100000003000000040000000500000002000000
   spreadAngle: 0
   bulletPrefab: {fileID: 3992474081883656927, guid: 579871c5d61e9417daecc004348cbe63, type: 3}
   weaponPrefab: {fileID: 6783490145623964156, guid: 19f12978debac48d2966de6cb2ea8f09, type: 3}

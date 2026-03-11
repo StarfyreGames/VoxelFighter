@@ -30,6 +30,8 @@ namespace Gun.Scripts
             _lastFired = Time.fixedTime;
 
             // Get the bullets into the scene and attach the relevant information
+
+            //*** THIS SECTION seems to be causing a null reference issue - see console output in game ***\\
             var firedBullets = BuildBulletTransforms(_blueprint.numberOfBullets)
                 .Select(bulletTransform =>
                     Instantiate(

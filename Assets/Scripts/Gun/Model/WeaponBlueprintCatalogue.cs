@@ -11,7 +11,11 @@ namespace Gun.Model
         public WeaponBlueprint spreadShotBase;
         public WeaponBlueprint lightningBase;
         public WeaponBlueprint laserBase;
-
+        /*Added by Russell to test  -- may need to rename these appropriately
+        public WeaponBlueprint pulseCannonUpgradeA;
+        public WeaponBlueprint pulseCannonUpgradeB;
+        public WeaponBlueprint pulseCannonUpgradeC;        
+        */
         private Dictionary<string, WeaponBlueprint> _blueprintsByName;
         
         public WeaponBlueprint FindByName(string weaponName)
@@ -24,6 +28,11 @@ namespace Gun.Model
             PopulateLookup(spreadShotBase);
             PopulateLookup(lightningBase);
             PopulateLookup(laserBase);
+
+            //Added by Russell to test\\
+            /*PopulateLookup(pulseCannonUpgradeA);
+            PopulateLookup(pulseCannonUpgradeB);
+            PopulateLookup(pulseCannonUpgradeC);*/
 
             return _blueprintsByName[weaponName];
         }

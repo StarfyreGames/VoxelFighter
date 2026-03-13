@@ -16,3 +16,6 @@ MonoBehaviour:
   spreadShotBase: {fileID: 0}
   lightningBase: {fileID: 0}
   laserBase: {fileID: 0}
+  pulseCannonUpgrade1: {fileID: 11400000, guid: 7ca97c7eccc1c4a449063714bee52190, type: 2}
+  pulseCannonUpgrade2: {fileID: 11400000, guid: fe0a17cbf865248d4a74364619805291, type: 2}
+  pulseCannonUpgradeC: {fileID: 11400000, guid: 00a30dbfb85e246d585d7bb6de322cac, type: 2}

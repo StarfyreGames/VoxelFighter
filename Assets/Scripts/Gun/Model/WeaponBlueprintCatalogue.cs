@@ -11,13 +11,13 @@ namespace Gun.Model
         public WeaponBlueprint spreadShotBase;
         public WeaponBlueprint lightningBase;
         public WeaponBlueprint laserBase;
-        /*Added by Russell to test  -- may need to rename these appropriately
-        public WeaponBlueprint pulseCannonUpgradeA;
-        public WeaponBlueprint pulseCannonUpgradeB;
+        //Added by Russell to test  -- may need to rename these appropriately\\
+        public WeaponBlueprint pulseCannonUpgrade1;
+        public WeaponBlueprint pulseCannonUpgrade2;
         public WeaponBlueprint pulseCannonUpgradeC;        
-        */
-        private Dictionary<string, WeaponBlueprint> _blueprintsByName;
-        
+        //\\
+        private Dictionary<string, WeaponBlueprint> _blueprintsByName;       
+
         public WeaponBlueprint FindByName(string weaponName)
         {
             if (_blueprintsByName != null) 
@@ -30,10 +30,11 @@ namespace Gun.Model
             PopulateLookup(laserBase);
 
             //Added by Russell to test\\
-            /*PopulateLookup(pulseCannonUpgradeA);
-            PopulateLookup(pulseCannonUpgradeB);
-            PopulateLookup(pulseCannonUpgradeC);*/
-
+            PopulateLookup(pulseCannonUpgrade1);
+            PopulateLookup(pulseCannonUpgrade2);
+            PopulateLookup(pulseCannonUpgradeC);
+            //\\
+ 
             return _blueprintsByName[weaponName];
         }
 
@@ -41,6 +42,12 @@ namespace Gun.Model
         {
             while (blueprint != null)
             {
+                if (_blueprintsByName.ContainsKey(blueprint.weaponName))
+                {
+                    Debug.LogError($"DUPLICATE KEY: {blueprint.weaponName} in {blueprint}");
+                    return;
+                }
+
                 _blueprintsByName.Add(blueprint.weaponName, blueprint);
                 blueprint = blueprint.nextUpgrade;
             }

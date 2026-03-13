@@ -20,7 +20,10 @@ namespace Gun.Scripts
 
         private GunRackEntity GunRackEntity =>
             GetComponent<IShipResolver>()?.GetShip().GunRack.Resolve();
-
+        //\\
+        [SerializeField] public WeaponBlueprint startweapon;
+        [SerializeField] private WeaponBlueprint currentGun;
+        //\\
         public void Fire()
         {
             foreach (var weapon in _weapons)
@@ -39,6 +42,7 @@ namespace Gun.Scripts
             if (layout == null) return;
 
             BuildGameObjects(catalogue.FindByName(layout.WeaponBlueprintName));
+     
         }
 
         public void UpgradeGun()
@@ -47,7 +51,13 @@ namespace Gun.Scripts
             if (layout == null) return;
 
             var weaponBlueprint = catalogue.FindByName(layout.WeaponBlueprintName);
-            if (weaponBlueprint.nextUpgrade == null) return;
+            if (weaponBlueprint.nextUpgrade == null)
+            //\\
+            {
+                Debug.Log($"No Upgrade available for {weaponBlueprint.weaponName}");  
+            //\\
+                return; 
+            }
 
             ChangeGun(weaponBlueprint.nextUpgrade);
         }
@@ -59,8 +69,11 @@ namespace Gun.Scripts
 
             // Update in live object but this is temporary so no save
             // at this point so that it's reset on next fetch.
-            layout.WeaponBlueprintName = blueprint.name;
+            layout.WeaponBlueprintName = blueprint.weaponName;
             BuildGameObjects(blueprint);
+            //\\
+            currentGun = blueprint;
+            //\\
         }
 
         private void BuildGameObjects(WeaponBlueprint weaponBlueprint)

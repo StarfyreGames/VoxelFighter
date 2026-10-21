@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Gun.Api;
 using Player.Scripts;
 using UnityEngine;
 
-public class BossEnemy : MonoBehaviour , IShootable
+public class BossEnemy : MonoBehaviour
 {
     public event System.Action OnBossDied;
 

@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Gun.Api;
 using Player.Scripts;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour, IShootable
+public class EnemyScript : MonoBehaviour
 {
     [Header("Waypoints")] [SerializeField] public WaypointTrack waypointTrack;
     [SerializeField] public List<Transform> waypointPath;

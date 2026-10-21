@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using Gun.Persistence;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Gun.Model
@@ -31,8 +29,7 @@ namespace Gun.Model
         
         public GameObject bulletPrefab;
         
-        public GameObject weaponPrefab;
+        public GameObject weaponPrefab;       
         
-        [CanBeNull] public WeaponBlueprint nextUpgrade;
     }
 }

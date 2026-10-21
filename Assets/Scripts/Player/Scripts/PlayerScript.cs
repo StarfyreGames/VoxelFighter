@@ -1,3 +1,4 @@
+using Gun.Scripts;
 using UnityEngine;
 
 namespace Player.Scripts
@@ -7,11 +8,12 @@ namespace Player.Scripts
         public float yPos = 0;
         public int shieldPoints; //we will also add an armor stat later ?
 
-        [Header("Player Variables")] [SerializeField]
-        public int maxShieldPoints = 5; //will replace or add to this with shields later
+        [Header("Player Variables")] 
+        [SerializeField] public int maxShieldPoints = 50; //will replace or add to this with shields later
 
         [SerializeField] public PlayerManager playerManager;
 
+        public Weapon currentWeapon;
 
         //public static PlayerScript Instance { get; private set; }
         public bool iAmInvincible = false;

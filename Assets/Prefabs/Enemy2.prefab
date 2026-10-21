@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2334005284147209887}
-  - component: {fileID: 1178145927571070684}
+  - component: {fileID: 5458951920696467036}
   m_Layer: 0
   m_Name: Body
   m_TagString: Enemy
@@ -26,14 +26,14 @@ Transform:
   m_GameObject: {fileID: 4699383245157008209}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: -0.37, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9005581494740588354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1178145927571070684
-CapsuleCollider:
+--- !u!65 &5458951920696467036
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -50,11 +50,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3
-  m_Height: 11
-  m_Direction: 2
-  m_Center: {x: 0, y: 1.5, z: 1}
+  serializedVersion: 3
+  m_Size: {x: 8.086893, y: 6.923065, z: 12.47419}
+  m_Center: {x: 0.69765925, y: 1.3462853, z: 0.1970377}
 --- !u!1 &4729379840893180523
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,10 +104,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
-  m_Height: 18
+  m_Radius: 4.6263227
+  m_Height: 18.974659
   m_Direction: 2
-  m_Center: {x: 1, y: 1.5, z: 0.5}
+  m_Center: {x: 0.48604012, y: 1.6123629, z: 0.9873295}
 --- !u!1 &5259276969871147149
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,10 +159,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
-  m_Height: 18
+  m_Radius: 4.935047
+  m_Height: 18.504337
   m_Direction: 2
-  m_Center: {x: 1, y: 1.5, z: 0.5}
+  m_Center: {x: 0.06495285, y: 1.5, z: 0.75216866}
 --- !u!1 &8624833140447792632
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +278,7 @@ MonoBehaviour:
   damageForHittingPlayer: 10
   scoreValue: 100
   hitpoints: 15
+  isDestroyed: 0
   iAmAlive: 0
 --- !u!114 &-1869852895441825345
 MonoBehaviour:
@@ -294,6 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Leveller
   player: {fileID: 0}
+  yModifier: 0
 --- !u!54 &6849876865485787531
 Rigidbody:
   m_ObjectHideFlags: 0

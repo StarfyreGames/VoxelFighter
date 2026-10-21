@@ -13,10 +13,10 @@ namespace Gun.Scripts
             _gunRack = GetComponent<GunRack>();
         }
         
-        private void OnAttack()
+        /*private void OnAttack()
         {
             if (isPlayerGunner) Fire();
-        }
+        }*/
 
         private void Fire()
         {
